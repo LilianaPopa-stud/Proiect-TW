@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+  }
+  
+  body {
+    background: #FEECE9;
+    font-family: Arial;
+    
+  }
+
+    a {
+    text-decoration: none;
+   }
+ 
+    li {
+    display: list-item;
+    list-style: none;
+}
+
+.header {
+    text-align: center;
+    padding: 32px;
+  }
+
+.logo {
+    font-size: 32px;
+    color: gray;
+   }
+    .menu {
+    display: flex;
+    gap: 1em;
+    font-size: 20px;
+   }
+
+   .menu a {
+    padding: 5px 14px;
+   }
+   .menu a:hover {
+    background-color: whitesmoke;
+    border-radius: 5px;
+    transition: 0.3s ease;
+   }
+   .menu a{
+       color: gray;
+   }
+
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: white;
+    color: #fff;
+   }
+
+   .nav-links a {
+    color: gray;
+   }
+
+  .container {
+    margin: 50px auto;
+    width: 700px;
+    height: 100px
+  }
+
+  .form {
+    display: flex;
+    flex-direction: row;
+  }
+  .search-field {
+    background-color: white;
+    width: 100%;
+    padding: 10px 35px 10px 15px;
+    border: none;
+    border-radius: 100px;
+    outline: none;
+  }
+  
+  .search-button {
+    background: transparent;
+    border: none;
+    outline: none;
+    margin-left: -33px;
+  }
+  
+  .search-button img {
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+  }
+  .header {
+    text-align: center;
+    padding: 32px;
+  }
+  
+  .row {
+    display: -ms-flexbox; 
+    display: flex;
+    -ms-flex-wrap: wrap; 
+    flex-wrap: wrap;
+    padding: 0 4px;
+  }
+  
+  
+  .column {
+    -ms-flex: 25%; 
+    max-width: 25%;
+    padding: 30px;
+  }
+  
+  .column img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 80%;
+  }
+  /* Responsive layout */
+  @media screen and (max-width: 800px) {
+    .column {
+      -ms-flex: 50%;
+      flex: 50%;
+      max-width: 50%;
+    }
+  }
+  
+  /* Responsive layout */
+  @media screen and (max-width: 600px) {
+    .column {
+      -ms-flex: 100%;
+      flex: 100%;
+      max-width: 100%;
+    }
+  }
