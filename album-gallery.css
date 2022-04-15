@@ -1,0 +1,103 @@
+
+.wrapper{
+    margin: 30px;
+    display: grid;
+    gap: 20px 0px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.6fr 1.4fr;
+    grid-template-areas: 
+    "cover"
+    "gallery";
+}
+
+.cover{
+    border-bottom: black 3px solid;
+    grid-area: cover;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cover h1{
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+.gallery{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px 40px;
+    grid-area: gallery;
+}
+
+@media only screen and (max-width: 768px){
+    .gallery{
+        grid-template-columns: 1fr;
+    }
+}
+
+.album{
+    border: black 2px solid;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 600;
+    transition: all 500ms;
+    font-size: 20px;
+    text-shadow: 1px 1px 5px white;
+}
+
+.album:hover{
+    font-size: 30px;
+}
+.background{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center center;
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+}
+.background:hover{
+    filter: blur(1px);
+    -webkit-filter: blur(1px)
+}
+.cover1{
+    background-image: url(https://images.pexels.com/photos/696218/pexels-photo-696218.jpeg?cs=srgb&dl=pexels-helena-lopes-696218.jpg&fm=jpg);
+    
+}
+.name{
+    position: absolute;
+    z-index: 1;
+    opacity: 1.0;
+}
+
+.cover2{
+    background-image: url(https://images.pexels.com/photos/3394310/pexels-photo-3394310.jpeg?cs=srgb&dl=pexels-inga-seliverstova-3394310.jpg&fm=jpg);
+
+}
+
+.cover3{
+    background-image: url(https://images.pexels.com/photos/417194/pexels-photo-417194.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+}
+
+.cover4{
+    background-image: url(https://images.pexels.com/photos/7713351/pexels-photo-7713351.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+
+}
+
+.cover5{
+    background-image: url(https://images.pexels.com/photos/2808402/pexels-photo-2808402.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+}
+
+.cover6{
+    background-image: url(https://images.pexels.com/photos/698907/pexels-photo-698907.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+}
