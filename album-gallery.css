@@ -13,7 +13,7 @@
 .cover{
     border-bottom: black 3px solid;
     grid-area: cover;
-    height: 200px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
