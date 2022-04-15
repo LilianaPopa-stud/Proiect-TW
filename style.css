@@ -206,5 +206,11 @@ a {
    .menu a {
     padding: 0px 5px;
    }
+   .logo {
+    font-family: 'Cooper Black', sans-serif;
+    font-size: 2em;
+    color: #003060;
+    margin-left: 20px;
+   }
 }
 
