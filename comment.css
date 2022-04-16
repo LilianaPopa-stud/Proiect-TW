@@ -2,7 +2,9 @@
     width: 650px;
     height: 200px;
 	background:transparent;
-
+}
+section#app{
+	margin: auto;
 }
 
 .comment {
@@ -11,12 +13,12 @@
 }
 
 .container-comm textarea {
-	width: 600px;
+	width: 560px;
     height: 80%;
 	border: none;
-	background: snow;
+	background: whitesmoke;
 	padding: 5px 10px;
-	border-radius: 5px 5px 0px 0px;
+	
 	border-bottom: 2px solid #003060;
 	transition: all 0.5s;
 	margin-top: 15px;
