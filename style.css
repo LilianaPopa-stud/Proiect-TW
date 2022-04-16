@@ -37,7 +37,7 @@ a {
   background-color: whitesmoke;
   transition: 0.3s ease;
  }
- 
+
  hr{
    background-color: #003060;
  }
@@ -58,6 +58,7 @@ a {
   top:0;
   width: 100%;
   position: sticky;
+  border-bottom: #f9f9f9;
  }
 
  .nav-links a {

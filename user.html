@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="styleUser.css" />
     <link rel="stylesheet" href="comment.css" />
-    <link rel="stylesheet" href="photo.css" />
+    <link rel="stylesheet" href="photoUtilities.css" />
     <link href="http://fonts.cdnfonts.com/css/cooper-black" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <title>TW</title>
@@ -46,8 +46,9 @@
     <main class="gallery">
                 <section id="app">
                     <div ><img src="./pics/swatch2.jpeg" class="photo"></div>
-                    <div class="caption-box"> <b> @username: </b>  My first post on this app</div>
+                    <div class="caption-box"> <b> @username: </b>  My last post on this app</div>
                     <div class="tags-box">   <b> #bpic #project #group</b> </div>
+                    <div class="date"> <time datetime="2022-04-16T21:20:15"> April 16, 2022 </time></div>
                     <div class="container-comm">
                         <div class="row">
                             <div class="col-6">
@@ -61,7 +62,7 @@
                         <!--End row-->
                         <div class="row">
                             <div class="col-6">
-                                <textarea type="text" class="input" placeholder="Write a comment" v-model="newItem"
+                                <textarea type="text" class="input" placeholder="Write a comment..." v-model="newItem"
                                     @keyup.enter="addItem()"></textarea>
                                 <button v-on:click="addItem()" class='primaryContained float-right' type="submit">Add
                                     comment</button>
@@ -79,6 +80,7 @@
                     <div><img src="./pics/swatch3.jpeg" class="photo"></div>
                     <div class="caption-box"> <b>@username:</b> My second post on this app</div>
                     <div class="tags-box">   <b> #bpic #project #group</b> </div>
+                    <div class="date"> <time datetime="2022-04-16T21:20:15"> March 8, 2022 </time></div>
                     <div class="container-comm">
                         <div class="row">
                             <div class="col-6">
@@ -92,7 +94,7 @@
                         <!--End row-->
                         <div class="row">
                             <div class="col-6">
-                                <textarea type="text" class="input" placeholder="Write a comment" v-model="newItem"
+                                <textarea type="text" class="input" placeholder="Write a comment..." v-model="newItem"
                                     @keyup.enter="addItem()"></textarea>
                                 <button v-on:click="addItem()" class='primaryContained float-left' type="submit">Add
                                     comment</button>
@@ -108,8 +110,9 @@
 
                 <section id="app">
                     <div><img src="./pics/swatch1.jpeg" class="photo"></div>
-                    <div class="caption-box"> <b>@username:</b> My last post on this app</div>
+                    <div class="caption-box"> <b>@username:</b> My first post on this app</div>
                     <div class="tags-box">   <b> #bpic #project #group</b> </div>
+                    <div class="date"> <time datetime="2022-04-16T21:20:15"> February, 2022 </time></div>
                     <div class="container-comm">
                         <div class="row">
                             <div class="col-6">
@@ -123,7 +126,7 @@
                         <!--End row-->
                         <div class="row">
                             <div class="col-6">
-                                <textarea type="text" class="input" placeholder="Write a comment" v-model="newItem"
+                                <textarea type="text" class="input" placeholder="Write a comment..." v-model="newItem"
                                     @keyup.enter="addItem()"></textarea>
                                 <button v-on:click="addItem()" class='primaryContained float-left' type="submit">Add
                                     comment</button>

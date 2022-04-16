@@ -37,9 +37,10 @@ body {
   grid-column-start: 2;
   grid-column-end: 2;
 }
+
 .wrapper {
   display: grid;
-  background-color: snow;
+  background-color: #fafafa;
   grid-template-columns: 1fr 0.8fr 2fr 10fr 3.8fr ;
   padding-bottom: 5px;
 
