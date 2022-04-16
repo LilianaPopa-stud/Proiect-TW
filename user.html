@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="styleUser.css" />
+    <link rel="stylesheet" href="comment.css" />
     <link href="http://fonts.cdnfonts.com/css/cooper-black" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <title>TW</title>
@@ -22,13 +23,14 @@
         </div>
     </nav>
     <section>
-        <div class="wrapper"> 
+        <div class="wrapper">
             <div class="btn1"> <button><i class="fa fa-filter"></i>Filter </i> </button></div>
             <div class="btn2"> <button><i class="fa fa-eye-slash"></i> Switch to private </i> </button></div>
             <div class="btn3"> <input type="file" name="file" id="file" class="myclass" />
-                <button> <label for="file"> <i class="fa fa-plus"> Upload picture </i>  </label></button></div>
-    </div>
-        
+                <button> <label for="file"> <i class="fa fa-plus"> Upload picture </i> </label></button>
+            </div>
+        </div>
+
     </section>
     <hr>
     <section class="content">
@@ -39,20 +41,77 @@
             @username
         </div>
     </section>
-    <section>
-        <hr>
-        <div class="gallery">
-            <div>
-                <figure><img class="item" src="./pics/swatch1.jpeg" alt=""> </figure>
-            </div>
-            <div> <a href=""><img class="item" src="./pics/swatch2.jpeg" alt=""> </a> </div>
-            <div> <img class="item" src="./pics/swatch3.jpeg" alt=""> </div>
-            <div> <img class="item" src="./pics/swatch4.jpeg" alt=""> </div>
-            <div> <img class="item" src="./pics/swatch5.jpg" alt=""> </div>
-            <div> <img class="item" src="./pics/swatch2.jpeg" alt=""> </div>
-            <div> <img class="item" src="./pics/swatch6.jpeg" alt=""> </div>
+    <hr>
+    <main class="gallery">
+        <div class="column1">
+            <div class="row-gallery"> <img class="photo" src="./pics/swatch4.jpeg"> </div>
         </div>
-    </section>
+        <div class="column2">
+            <div class="row-gallery">
+                <section id="app">
+                    <div class="container-comm">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="comment">
+                                    <p v-for="items in item" v-text="items"></p>
+                                </div>
+                                <!--End comment-->
+                            </div>
+                            <!--End Col-->
+                        </div>
+                        <!--End row-->
+                        <div class="row">
+                            <div class="col-6">
+                                <textarea type="text" class="input" placeholder="Write a comment" v-model="newItem"
+                                    @keyup.enter="addItem()"></textarea>
+                                <button v-on:click="addItem()" class='primaryContained float-right' type="submit">Add
+                                    comment</button>
+                            </div>
+                            <!--end col-->
+                        </div>
+                        <!--End row-->
+                    </div>
+                    <!--End Container-->
+                </section>
+                <!--end app-->
+            </div>
+        </div>
+
+        <div class="column1">
+            <div class="row-gallery"> <img class="photo" src="./pics/swatch2.jpeg"> </div>
+        </div>
+        <div class="column2">
+            <div class="row-gallery">
+                <section id="app">
+                    <div class="container-comm">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="comment">
+                                    <p v-for="items in item" v-text="items"></p>
+                                </div>
+                                <!--End comment-->
+                            </div>
+                            <!--End Col-->
+                        </div>
+                        <!--End row-->
+                        <div class="row">
+                            <div class="col-6">
+                                <textarea type="text" class="input" placeholder="Write a comment" v-model="newItem"
+                                    @keyup.enter="addItem()"></textarea>
+                                <button v-on:click="addItem()" class='primaryContained float-left' type="submit">Add
+                                    comment</button>
+                            </div>
+                            <!--end col-->
+                        </div>
+                        <!--End row-->
+                    </div>
+                    <!--End Container-->
+                </section>
+                <!--end app-->
+            </div>
+        </div>
+
+    </main>
 
 
 </body>
