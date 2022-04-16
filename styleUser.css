@@ -1,8 +1,9 @@
 .profile-pic {
     border-radius: 50%;
-    width: 120px;
-    height: 120px;
-  
+    width: 130px;
+    height: 130px;
+    border-style: double;
+    border-color: #003060;
 }
 body {
   background: white;
