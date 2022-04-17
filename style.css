@@ -83,7 +83,7 @@ a {
   border-style: groove;
   border-color: #003060;
   border-radius: 100px;
-
+  margin: 5px 5px 5px 5px;
   outline: none;
 }
 
@@ -91,7 +91,7 @@ a {
   background: transparent;
   border: none;
   outline: none;
-  margin-left: -33px;
+  margin-left: -38px;
 }
 
 .search-button img {
@@ -137,82 +137,6 @@ a {
   background:white;
 
 }
-/* Responsive layout */
-@media screen and (max-width: 800px) {
-  .column {
-    flex: 50%;
-    max-width: 50%;
-  }
-  .container {
-    margin: 50px auto;
-    width: 500px;
-    height: 80px;
-}
-}
 
-/* Responsive layout */
-@media screen and (max-width: 600px) {
-  .column {
-    flex: 100%;
-    max-width: 100%;
-  }
-  .container {
-    margin: 50px auto;
-    width: 80%;
-    height: 60px
-}
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 25px 0px 5px 0px;
-  background-color: white;
-  width: 100%;
- }
- .menu {
-  display: flex;
-  gap: 0.5em;
-  font-size: 1.5em;
- }
 
- .menu a {
-  padding: 0px 5px;
- }
-}
-
-/* Responsive layout */
-@media screen and (max-width: 450px) {
-  .column {
-    flex: 100%;
-    max-width: 100%;
-  }
-  .container {
-    margin: 50px auto;
-    width: 70%;
-    height: 30px
-  }
-  .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 25px 0px 5px 0px;
-    background-color: white;
-    width: 100%;
-   }
-   .menu {
-    display: flex;
-    gap: 0.5em;
-    font-size: 1em;
-   }
-  
-   .menu a {
-    padding: 0px 5px;
-   }
-   .logo {
-    font-family: 'Cooper Black', sans-serif;
-    font-size: 2em;
-    color: #003060;
-    margin-left: 20px;
-   }
-}
 
