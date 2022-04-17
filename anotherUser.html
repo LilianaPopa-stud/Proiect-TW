@@ -26,7 +26,20 @@
     </nav>
     <section>
         <div class="wrapper-user">
-            <div class="btn1"> <button><i class="fa fa-filter"></i>Filter</button></div>
+            <div class="butoane-top">
+                <ul class="dropdown">
+                    <li><button type="button" class="buttons">
+                    <span class="button_icon"><ion-icon name="funnel-outline"></ion-icon></ion-icon></span>
+                    <span class="button_text">Filter</span>
+                    </button>
+                <ul class="elemente_dropdown">
+                    <li><a href="#">after date</a></li>
+                    <li><a href="#">after tag</a></li>
+                </ul>
+                </li>
+                </ul>
+            </div>
+                 
             <div class="container-user">
                 <form action="/" method="GET" class="form">
                     <input type="search" placeholder="Search" class="search-field" />
@@ -39,7 +52,6 @@
         </div>
 
     </section>
-    <hr>
     <section class="content">
         <div>
             <img src="./pics/avatar2.png" alt="profile-pic" class="profile-pic">
@@ -48,9 +60,34 @@
             @username
         </div>
     </section>
-    <hr>
+
     <main class="gallery">
         <section id="app">
+            <div class="butoane-top">
+
+                <ul class="dropdown">
+                    <li><button type="button" class="buttons">
+                    <span class="button_icon"><ion-icon name="people-outline"></ion-icon></span>
+                    <span class="button_text">Tagged</span>
+                    </button>
+                <ul class="elemente_dropdown">
+                    <li><a href="#">@user1</a></li>
+                    <li><a href="#">@user2</a></li>
+                </ul>
+                </li>
+                </ul>
+
+
+                        <ul class="dropdown">
+            <li><button type="button" class="buttons">
+            <span class="button_icon"><ion-icon name="ellipsis-horizontal-outline"></ion-icon></span>
+            </button>
+        <ul class="elemente_dropdown">
+            <li><a href="#">Tag</a></li>
+        </ul>
+        </li>
+        </ul>
+                </div> 
             <div><img src="./pics/swatch2.jpeg" class="photo" alt="post"></div>
             <div class="caption-box"> <b> @username: </b> My last post on this app</div>
             <div class="tags-box"> <b> #bpic #project #group</b> </div>
@@ -141,7 +178,8 @@
 
     </main>
 
-
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>
