@@ -43,7 +43,7 @@
 
     .wrapper {
         display: grid;
-        background-color: snow;
+        background-color: white;
         grid-template-columns: 1fr 2fr 4fr 8fr 3.8fr;
         padding-bottom: 5px;
 
@@ -96,7 +96,7 @@
 
     .wrapper {
         display: grid;
-        background-color: snow;
+        background-color: white;
         grid-template-columns: 1fr 2fr 4fr 8fr 3.8fr;
         padding-bottom: 5px;
         padding: 5px;
@@ -149,7 +149,7 @@
 
     .wrapper {
         display: grid;
-        background-color: snow;
+        background-color: white;
         grid-template-columns: 1fr 2fr 4fr 8fr 3.8fr;
         padding-bottom: 5px;
 
@@ -300,7 +300,7 @@
 
     .wrapper {
         display: grid;
-        background-color: snow;
+        background-color: white;
         grid-template-columns: 1fr 2fr 4fr 8fr 3.8fr;
         padding-bottom: 5px;
         padding: 5px;
@@ -478,7 +478,7 @@
 
     .wrapper {
         display: grid;
-        background-color: snow;
+        background-color: white;
         grid-template-columns: 1fr 2fr 4fr 8fr 3.8fr;
         padding-bottom: 5px;
 
