@@ -1,0 +1,38 @@
+body{
+    width: auto;
+	height: auto;
+	margin: 0px 3% 0px 3%;
+
+}
+.report_list {
+	margin-top: 10px;
+	margin-right: 10px;
+	text-align: left;
+}
+
+.report_list_ol a {
+	text-decoration: none;
+}
+
+.report_list_ol h3:hover {
+	color: #008A9E;
+}
+
+.report_sublist {
+	font-size: 22px;
+}
+
+h2 {
+	font-size: 30px;
+	color: #003060;
+}
+	
+h3 {
+	font-size: 22px;
+	color: #003060;
+}
+
+h4{
+    font-size: 20px;
+}
+
