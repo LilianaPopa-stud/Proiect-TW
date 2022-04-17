@@ -1,116 +1,64 @@
-
+.navbar{
+    z-index: 10;
+}
 .wrapper{
-    margin: 10px;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.6fr 1.4fr;
-    grid-template-areas: 
-    "cover"
-    "gallery";
+    padding: 10px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    gap: 10px;
 }
 
 .cover{
-    border-bottom: black 3px solid;
-    grid-area: cover;
+    border-bottom: black 2px solid;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.cover h1{
-    text-align: center;
+    font-size: 30px;
 }
 
 .gallery{
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 30px 40px;
-    grid-area: gallery;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 30px 30px;
+    padding: 10px;
+}
+
+svg{
+    height: 20px;
+    width: 20px;
+    fill: black;
 }
 
 .album{
+    background-color: antiquewhite;
     border: black 2px solid;
-    height: 180px;
-    width: 200px;
+    height: 192px;
+    width: 192px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    font-weight: 600;
+    align-items: center;
     transition: all 500ms;
     font-size: 20px;
-    text-shadow: 1px 1px 5px white;
-}
-.background{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    background-size:cover;
-    background-repeat:no-repeat;
-    background-position:center center;
-    filter: blur(9px);
-    -webkit-filter: blur(9px);
-}
-.background:hover{
-    filter: blur(5px);
-    -webkit-filter: blur(5px)
+    color: black;
 }
 
-.name{
-    position: absolute;
-    z-index: 1;
-    opacity: 1.0;
+.album:hover{
+    font-size: 25px;
+    text-shadow: 0px 0px 5px white;
 }
 
-.cover1{
-    background-image: url(https://images.pexels.com/photos/696218/pexels-photo-696218.jpeg?cs=srgb&dl=pexels-helena-lopes-696218.jpg&fm=jpg);
-    
-}
-
-.cover2{
-    background-image: url(https://images.pexels.com/photos/3394310/pexels-photo-3394310.jpeg?cs=srgb&dl=pexels-inga-seliverstova-3394310.jpg&fm=jpg);
-
-}
-
-.cover3{
-    background-image: url(https://images.pexels.com/photos/417194/pexels-photo-417194.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
-}
-
-.cover4{
-    background-image: url(https://images.pexels.com/photos/7713351/pexels-photo-7713351.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
-
-}
-
-.cover5{
-    background-image: url(https://images.pexels.com/photos/2808402/pexels-photo-2808402.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
-}
-
-.cover6{
-    background-image: url(https://images.pexels.com/photos/698907/pexels-photo-698907.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
-}
-
-@media only screen and (max-width: 600px) {
-    .gallery{
-        grid-template-columns: repeat(2, 1fr);
-        gap: 5px 5px;
-    }
-
-    .cover{
-        border-bottom: black 2px solid;
-        height: 20px;
-    }
-
-    .cover h1{
-        font-size: 15px;
-    }
-
+@media only screen and (max-width: 600px){
     .album{
-        border: black 2px solid;
         height: 100px;
-        width: 100px;
-        font-size: 10px;
+        width: 500px;
+        font-size: 20px;
+    }
+    
+    .album:hover{
+        font-size: 20px;
     }
 }
