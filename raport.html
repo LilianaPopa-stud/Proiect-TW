@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaStyle.css" />
+    <link href="http://fonts.cdnfonts.com/css/cooper-black" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <title>TW</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">BPIC</div>
+        <div class="menu">
+                <a href="index.html" class="active"><i class="fa fa-home" > Home </i></a>
+                <a href="album-gallery.html"><i class="fa fa-folder"> Albums </i> </a>
+                <a href="user.html"><i class="fa fa-user"> User </i></a>
+        </div>
+    </nav>
+    <section>
+    <div class="header">
+        <h1> Galeria ta virtuala </h1>
+        <p> Descopera BPIC</p>
+    </div>
+    <ol class="report_list_ol">
+        <li><h3 id="desc">Descriere generală</h3>
+            <ul class="report_sublist">
+                <li>
+                    <h4>Context</h4>
+                    <p>Realizarea unei aplicații pentru managementul fotografiilor personale cu o interfață Web responsive.</p>
+                </li>
+                <li>
+                    <h4>Funcții produs</h4>
+                    <p>Aplicația BPIC gestionează o galerie personală de fotografii și oferă utilizatorului posibilitatea de a le edita, adăuga în diverse albume, 
+                      adăuga tag-uri și etichete, sorta în funcție de dată și tag-uri, exporta statistici.
+                     Aplicația administrează utilizatorii care doresc să acceseze aceste servicii ce presupun deținerea unui cont personal.</p>
+                </li>
+                <li>
+                    <h4>Mediu de operare</h4>
+                    <p>Aplicația a fost testată (până în momentul de față) pe web browser-ul Google Chrome și Safari, rulat pe sistemul de operare Windows 10 și macOS.</p>
+                </li>
+            </ul>
+        </li>
+        <li><h3 id="func">Funcționalități</h3>
+            <ul class="report_sublist">
+                <li>
+                    <h4>Logare/Creare cont</h4>
+                    <p>Utilizatorul are posibilitatea de a-și crea un cont, necesar administrării fotografiilor și de a se loga dacă deja deține unul. 
+                        Pagina principală a aplicației necesită utilizatorului 
+                        conectarea sau crearea unui cont pentru a putea accesa funcționalitățile aplicației.
+                    </p>
+                </li>
+                <li>
+                    <h4>Căutare alt utilizator</h4>
+                    <p>Orice utilizator conectat are posibilitatea de a căuta alt utilizator în funcție de username
+                         utilizând search bar-ul din pagina principală și de a-i vizualiza profilul.
+                    </p>
+                </li>
+                <li>
+                    <h4>Upload fotografii</h4>
+                    <p>Orice utilizator conectat are posibilitatea de a adăuga fotografii în galeria personală, functionalitate pusă la dispozitie odată ce 
+                        acesta își accesează profilul (accesând butonul "User" din bara de navigare)
+                        prin intermediul unui buton de Upload situat în partea de sus a ecranului.</p>
+                </li>
+                <li>
+                    <h4>Editare fotografie </h4>
+                    <p>Funcționalitatea de editare a fotografiilor este pusă la dispoziția utilizatorului când acesta se află în profilul său prin intermediul butonului de "Edit"
+                        situat deasupra fiecărei fotografii. Editarea constă în aplicarea unei serii de filtre și efecte disponibile în CSS.
+                    </p>
+                </li>
+                <li>
+                    <h4>Ștergere fotografie</h4>
+                    <p>Utilizatorul are posibilitatea de a șterge fotografia postată accesând butonul 
+                        "Delete" din cadrul secțiunii "more" reprezentată la nivelul butonului de deasupra fotografiei.</p>
+                </li>
+                <li>
+                    <h4>Adăugare tag-uri</h4>
+                    <p>Utilizatorul poate adăuga tag-uri din cadrul secțiunii "more" reprezentată la nivelul butonului de deasupra fotografiei accesând butonul "tag". </p>
+    
+                </li>
+                <li>
+                    <h4>Adăugare comentarii</h4>
+                    <p>Utilizatorul poate adăuga comentarii atât la propria poză sau în cadrul postării unui alt utilizator în secțiunea de comment din partea de jos a postării. </p>
+                </li>
+                <li>
+                    <h4>Adăugare la album</h4>
+                    <p>Utilizatorul poate organiza fotografiile în diverse albume accesând fie butonul "Add to folder" de deasupra fotografiei, fie din secțiunea "Albums" 
+                        pe care o poate accesa cu ajutorul butonul "Albums" situat în bara de navigare, urmată de accesarea butonului "Add photo" situat în folderul ales. </p>
+                </li>
+                <li>
+                    <h4>Filtrare fotografii</h4>
+                    <p> Fotografiile pot fi filtrate în funcție de dată și tag-uri prin accesarea butonului "Filter" din cadrul paginii "User". </p>
+                </li>
+                <li>
+                    <h4>Export statistici</h4>
+                    <p>Posibilitatea de a exporta statistici în format CSV, privind numărul de poze pe care un utilizator le are și câte dintre acestea au un anumit tag prin intermediul
+                        accesării butonului de "Stats" situat în partea de sus a paginii User.
+                    </p>
+                </li>
+            
+    
+            </ul>
+        </li>
+        <li><h3 id="prec">Precizări</h3>
+            <ul class="report_sublist">
+                <li>
+                    <p>În proiectarea și implementarea interfeței, implicarea membrilor de echipă a fost echilibrată. S-a colaborat și participat activ în realizarea majorității componentelor din ambele părți, însă tabelul de mai jos
+                    ilustrează cu exactitate componentele asupra cărora s-a concentrat mai mult unul din membrii echipei (în cazul Index, contribuția a fost egală, reprezentând etapa incipientă a colaborării).</p>
+                </li>
+                <li>
+  <footer class="footer">
+  </footer>
+
+</body>
+
+</html>
