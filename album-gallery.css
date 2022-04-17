@@ -1,7 +1,13 @@
 .navbar{
     z-index: 10;
 }
+
+body{
+    background-color: white;
+}
+
 .wrapper{
+    background-color: white;
     padding: 10px;
     display: flex;
     flex-flow: column wrap;
@@ -10,15 +16,16 @@
 }
 
 .cover{
-    border-bottom: black 2px solid;
+    background-color: white;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .gallery{
+    background-color: white;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -26,15 +33,15 @@
     padding: 10px;
 }
 
-svg{
+.album svg{
     height: 20px;
     width: 20px;
     fill: black;
 }
 
 .album{
-    background-color: antiquewhite;
-    border: black 2px solid;
+    background-color: #f9f9f9;
+    border-radius: 10px;
     height: 192px;
     width: 192px;
     display: flex;
@@ -42,11 +49,12 @@ svg{
     justify-content: center;
     align-items: center;
     transition: all 500ms;
-    font-size: 20px;
+    font-size: 15px;
     color: black;
 }
 
 .album:hover{
+    background-color: #f0f0f0;
     font-size: 25px;
     text-shadow: 0px 0px 5px white;
 }
