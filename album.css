@@ -12,6 +12,7 @@
 .album-title{
     grid-area: album-title;
 	padding-left: 0px;
+	font-size: 30px;
 	border-bottom: black 3px solid;
 }
 
