@@ -24,8 +24,8 @@ session_start();
         <div class="logo">BPIC</div>
         <div class="menu">
             <a href="../registration/index.php"><i class="fa fa-home"> Home </i></a>
-            <a href=""><i class="fa fa-folder"> Albums </i> </a>
-            <a href="" class="active"><i class="fa fa-user"> User </i></a>
+            <a href="../user-albums/albums.php"><i class="fa fa-folder"> Albums </i> </a>
+            <a href="user.php" class="active"><i class="fa fa-user"> User </i></a>
         </div>
     </nav>
     
