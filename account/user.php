@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+<?php include('fetch.php') ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -68,11 +66,9 @@ session_start();
                    
               </div>
 
-
-            
-<div class="btn3"> <input type="file" name="file" id="file" class="myclass" />
-                 <label for="file"> <i class="fa fa-plus"></i> Upload </label>
-            </div>
+        <div class="btn3">
+            <a href="uploadPage.php"><label for="file"> <i class="fa fa-plus"></i> Upload </label></a>     
+        </div>
         </div>
 
 
@@ -124,7 +120,22 @@ session_start();
         </li>
         </ul>
                 </div> 
-            <div><img src="./pics/swatch2.jpeg" class="photo" alt="post"></div>
+
+            
+            <?php
+                if(isset($_SESSION['photos'])){
+                    foreach($_SESSION['photos'] as $filename){
+                        echo
+                        '<div>
+                            <img src="../images/',$filename,'" class="photo" alt="post">
+                        </div>'
+                        ;
+
+                    }
+                }
+                ?>
+
+
             <div class="caption-box"> <b> @username: </b> My last post on this app</div>
             <div class="tags-box"> <b> #bpic #project #group</b> </div>
             <div class="date"> <time datetime="2022-04-16T21:20:15"> April 16, 2022 </time></div>
