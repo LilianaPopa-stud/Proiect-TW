@@ -1,5 +1,7 @@
 # Proiect-TW
 
+Currently, the website can be started using xampp.
+
 ## Login/Signup process
 
 ### Signup
