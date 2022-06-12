@@ -48,3 +48,31 @@ The user is able to login by entering its username and password.
 
 The server will get the data from the user and will search in the database for the matching username and password.
 If the login process is successful, the new user will be able to freely access the website (the main page, the account page etc.)
+
+## Albums
+
+The user is able to create albums destined for organizing photos.
+
+**Client side**
+
+**The albums page**
+
+![image](https://user-images.githubusercontent.com/67517427/173236951-953555cd-92fa-45b0-917c-4be8e7dbf02a.png)
+
+**Server side**
+
+**The `albums` table in MySql**
+
+![image](https://user-images.githubusercontent.com/67517427/173236987-a7ab449b-3af6-40a3-b027-fbe2e5ebbc45.png)
+
+
+**After a user adds albums**
+
+![image](https://user-images.githubusercontent.com/67517427/173237005-6c4d2f6d-88b0-4c9e-b526-6a7b9bb893e2.png)
+
+In `addAlbum.php`:
+* the server will extract from the database the albums associated to the current session username, and will display them in html through the `albums.php` file.
+* when the 'add new' album is clicked in `albums.php`, the server will extract the album name entered by the user (in the popup form made with JavaScript) and will insert it along the username in the databse.
+
+
+
