@@ -1,24 +1,29 @@
 <?php
+include_once('ImageInfo.php');
 session_start();
 
 $username = "";
 $errors = array();
 
-$userPhotos = array(); //for user's albums
+$userPhotos = array(); //for user's photos
 
 $db = mysqli_connect('localhost', 'root', '', 'proiect_tw');
 
 //getting user photos
 if(count($errors) == 0){
-    $query = "SELECT filename FROM images
+    $query = "SELECT * FROM images
                 WHERE username='" . mysqli_real_escape_string($db, $_SESSION['username']) . "'";
     $result = mysqli_query($db, $query);
     if(mysqli_num_rows($result) > 0){
         while($file = mysqli_fetch_assoc($result)){
-            array_push($userPhotos, $file['filename']);
+            $photo = new ImageInfo($file['filename']);
+            $photo->set_id($file['id']);
+            $photo->set_created($file['created']);
+            $photo->set_visibility($file['visibility']);
+            array_push($userPhotos, $photo);
         }
     }
-    $_SESSION['photos'] = $userPhotos;  
+    $_SESSION['photos'] = $userPhotos;
 }
 
 ?>

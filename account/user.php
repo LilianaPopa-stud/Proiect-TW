@@ -1,4 +1,7 @@
-<?php include('fetch.php') ?>
+<?php 
+include_once('ImageInfo.php');
+include_once('fetch.php');
+ ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -91,194 +94,72 @@
 
     <section class="main">
     <main class="gallery">
-        <section id="app">
-            <div class="butoane-top">
-
-                <ul class="dropdown">
-                    <li><button type="button" class="buttons">
-                    <span class="button_icon"><ion-icon name="people-outline"></ion-icon></span>
-                    <span class="button_text">Tagged</span>
-                    </button>
-                <ul class="elemente_dropdown">
-                    <li><a href="#">@user1</a></li>
-                    <li><a href="#">@user2</a></li>
-                </ul>
-                </li>
-                </ul>
-
-
-                        <ul class="dropdown">
-            <li><button type="button" class="buttons">
-            <span class="button_icon"><ion-icon name="ellipsis-horizontal-outline"></ion-icon></span>
-            </button>
-        <ul class="elemente_dropdown">
-            <li><a href="#">Edit</a></li>
-            <li><a href="#">Delete</a></li>
-            <li><a href="#">Add to folder</a></li>
-            <li><a href="#">Tag</a></li>
-        </ul>
-        </li>
-        </ul>
-                </div> 
 
             
             <?php
                 if(isset($_SESSION['photos'])){
-                    foreach($_SESSION['photos'] as $filename){
+                    foreach($_SESSION['photos'] as $photo){
                         echo
-                        '<div>
-                            <img src="../images/',$filename,'" class="photo" alt="post">
-                        </div>'
-                        ;
+                        '
+                        <section id="app">
+                            <div class="butoane-top">
+                                <ul class="dropdown">
+                                    <li><button type="button" class="buttons">
+                                            <span class="button_icon"><ion-icon name="people-outline"></ion-icon></span>
+                                            <span class="button_text">Tagged</span>
+                                        </button>
+                                        <ul class="elemente_dropdown">
+                                            <li><a href="#">@user1</a></li>
+                                            <li><a href="#">@user2</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <ul class="dropdown">
+                                    <li><button type="button" class="buttons">
+                                            <span class="button_icon"><ion-icon name="ellipsis-horizontal-outline"></ion-icon></span>
+                                        </button>
+                                        <ul class="elemente_dropdown">
+                                            <li><a href="#">Edit</a></li>
+                                            <li><a href="#">Delete</a></li>
+                                            <li><a href="#">Add to folder</a></li>
+                                            <li><a href="#">Tag</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div> 
+                            <div>
+                                <img src="../images/'.$photo->get_filename().'" class="photo" alt="post">
+                            </div>
+                            <div class="caption-box"> <b>'.$_SESSION['username'] .': </b> My last post on this app</div>
+                            <div class="tags-box"> <b> #bpic #project #group</b> </div>
+                            <div class="date">'.$photo->get_created().'</time></div>
+                            <div class="container-comm">
+                            <div class="row-gallery">
+                                <div class="col-6">
+                                    <div class="comment">
+                          
+                                    </div>
+                                    <!--End comment-->
+                                </div>
+                                 <!--End Col-->
+                            </div>
+                            <!--End row-->
+                            <div class="row-gallery">
+                                <div class="col-6">
+                                    <textarea class="input" placeholder="Write a comment..."></textarea>
+                                    <button class="primaryContained float-right" type="submit">Add comment</button>
+                                </div>
+                                 <!--end col-->
+                            </div>
+                            <!--End row-->
+                        </div>
+                        <!--End Container-->
+                    </section>
+                    <!--end app-->';
 
                     }
                 }
                 ?>
-
-
-            <div class="caption-box"> <b> @username: </b> My last post on this app</div>
-            <div class="tags-box"> <b> #bpic #project #group</b> </div>
-            <div class="date"> <time datetime="2022-04-16T21:20:15"> April 16, 2022 </time></div>
-            <div class="container-comm">
-                <div class="row-gallery">
-                    <div class="col-6">
-                        <div class="comment">
-                          
-                        </div>
-                        <!--End comment-->
-                    </div>
-                    <!--End Col-->
-                </div>
-                <!--End row-->
-                <div class="row-gallery">
-                    <div class="col-6">
-                        <textarea class="input" placeholder="Write a comment..."></textarea>
-                        <button class='primaryContained float-right' type="submit">Add comment</button>
-                    </div>
-                    <!--end col-->
-                </div>
-                <!--End row-->
-            </div>
-            <!--End Container-->
-        </section>
-        <!--end app-->
-
-
-        <section id="app">
-            <div class="butoane-top">
-
-                <ul class="dropdown">
-                    <li><button type="button" class="buttons">
-                    <span class="button_icon"><ion-icon name="people-outline"></ion-icon></span>
-                    <span class="button_text">Tagged</span>
-                    </button>
-                <ul class="elemente_dropdown">
-                    <li><a href="#">@user1</a></li>
-                    <li><a href="#">@user2</a></li>
-                </ul>
-                </li>
-                </ul>
-
-
-                        <ul class="dropdown">
-            <li><button type="button" class="buttons">
-            <span class="button_icon"><ion-icon name="ellipsis-horizontal-outline"></ion-icon></span>
-            </button>
-        <ul class="elemente_dropdown">
-            <li><a href="#">Edit</a></li>
-            <li><a href="#">Delete</a></li>
-            <li><a href="#">Add to folder</a></li>
-            <li><a href="#">Tag</a></li>
-        </ul>
-        </li>
-        </ul>
-                </div> 
-            <div><img src="./pics/swatch3.jpeg" class="photo" alt="post"></div>
-            <div class="caption-box"> <b>@username:</b> My second post on this app</div>
-            <div class="tags-box"> <b> #bpic #project #group</b> </div>
-            <div class="date"> <time datetime="2022-04-16T21:20:15"> March 8, 2022 </time></div>
-            <div class="container-comm">
-                <div class="row-gallery">
-                    <div class="col-6">
-                        <div class="comment">
-                        </div>
-                        <!--End comment-->
-                    </div>
-                    <!--End Col-->
-                </div>
-                <!--End row-->
-                <div class="row-gallery">
-                    <div class="col-6">
-                        <textarea class="input" placeholder="Write a comment..."></textarea>
-                        <button class='primaryContained float-left' type="submit">Add
-                            comment</button>
-                    </div>
-                    <!--end col-->
-                </div>
-                <!--End row-->
-            </div>
-            <!--End Container-->
-        </section>
-        <!--end app-->
-
-
-        <section id="app">
-            <div class="butoane-top">
-
-                <ul class="dropdown">
-                    <li><button type="button" class="buttons">
-                    <span class="button_icon"><ion-icon name="people-outline"></ion-icon></span>
-                    <span class="button_text">Tagged</span>
-                    </button>
-                <ul class="elemente_dropdown">
-                    <li><a href="#">@user1</a></li>
-                    <li><a href="#">@user2</a></li>
-                </ul>
-                </li>
-                </ul>
-
-
-                        <ul class="dropdown">
-            <li><button type="button" class="buttons">
-            <span class="button_icon"><ion-icon name="ellipsis-horizontal-outline"></ion-icon></span>
-            </button>
-        <ul class="elemente_dropdown">
-            <li><a href="#">Edit</a></li>
-            <li><a href="#">Delete</a></li>
-            <li><a href="#">Add to folder</a></li>
-            <li><a href="#">Tag</a></li>
-        </ul>
-        </li>
-        </ul>
-                </div> 
-            <div><img src="./pics/swatch1.jpeg" class="photo" alt="post"></div>
-            <div class="caption-box"> <b>@username:</b> My first post on this app</div>
-            <div class="tags-box"> <b> #bpic #project #group</b> </div>
-            <div class="date"> <time datetime="2022-04-16T21:20:15"> February 14, 2022 </time></div>
-            <div class="container-comm">
-                <div class="row-gallery">
-                    <div class="col-6">
-                        <div class="comment">
-                        </div>
-                        <!--End comment-->
-                    </div>
-                    <!--End Col-->
-                </div>
-                <!--End row-->
-                <div class="row-gallery">
-                    <div class="col-6">
-                        <textarea class="input" placeholder="Write a comment..."></textarea>
-                        <button  class='primaryContained float-left' type="submit">Add comment</button>
-                    </div>
-                    <!--end col-->
-                </div>
-                <!--End row-->
-            </div>
-            <!--End Container-->
-        </section>
-        <!--end app-->
-
-
     </main>
 </section>
         <!--librarie icons-->
