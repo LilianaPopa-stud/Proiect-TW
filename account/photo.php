@@ -30,6 +30,7 @@
         <link rel="stylesheet" href="../styles/comment.css" />
         <link rel="stylesheet" href="../styles/photoUtilities.css" />
         <link rel="stylesheet" href="../styles/mediaStyle.css" />
+        <link rel="stylesheet" href="styles/photoPage.css" />
         <link rel="stylesheet" href="../user-albums/styles/albums.css" />
         <link href="http://fonts.cdnfonts.com/css/cooper-black" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
@@ -53,13 +54,7 @@
             <div class="actionSide">
                 <?php $photo = init($_SESSION['filename'], $_SESSION['username']);
                     $_SESSION['photo'] = $photo; ?>
-                <div class="photo-info">
-                    <ul>
-                        <li><h3>Date added: </h3><p><?php echo $photo->get_created();?></p></li>
-                        <li><h3>Visibility: </h3><p><?php echo $photo->get_visibility();?></p></li>
-                        <li><h3>Tags: </h3><p><?php echo $photo->get_tags();?></p></li>
-                    </ul>
-                </div>
+                
                 <div class="photoActions">
                     <button>Edit</button>
                     <button type="button" onclick="openForm()">Add to folder</button>
@@ -74,6 +69,33 @@
                         </a>
                     </button>
                  </div>
+                 <div class="photo-info">
+                    <ul>
+                        <li><h3>Date added: </h3><p><?php echo $photo->get_created();?></p></li>
+                        <li><h3>Visibility: </h3><p><?php echo $photo->get_visibility();?></p></li>
+                        <li><h3>Tags: </h3><p><?php echo $photo->get_tags();?></p></li>
+                    </ul>
+                </div>
+                <div class="container-comm">
+                            <div class="row-gallery">
+                                <div class="col-6">
+                                    <div class="comment">
+                          
+                                    </div>
+                                    <!--End comment-->
+                                </div>
+                                 <!--End Col-->
+                            </div>
+                            <!--End row-->
+                            <div class="row-gallery">
+                                <div class="col-6">
+                                    <textarea class="input" placeholder="Write a comment..."></textarea>
+                                    <button class="primaryContained float-right" type="submit">Add comment</button>
+                                </div>
+                                 <!--end col-->
+                            </div>
+                            <!--End row-->
+                        </div>
             </div>
 
         </div>

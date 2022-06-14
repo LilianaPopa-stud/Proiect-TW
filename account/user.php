@@ -1,6 +1,7 @@
 <?php 
 include_once('ImageInfo.php');
 include_once('actions/fetch.php');
+
  ?>
 
 <!DOCTYPE html>
@@ -61,9 +62,16 @@ include_once('actions/fetch.php');
           
             <div class="butoane-top">
                 <ul class="dropdown">
-                    <li><button type="button" class="buttons">
-                    <span class="button_icon"><ion-icon name="eye-outline"></ion-icon></span>
-                    <span class="button_text">Public</span></button>
+                    <li>
+                        <button type="button" class="buttons">
+                            <span class="button_icon"><ion-icon name="eye-outline"></ion-icon></span>
+                            <span class="button_text">Visibility</span>
+                        </button>
+                        <ul class="elemente_dropdown">
+                            <li><a href="#">All</a></li>
+                            <li><a href="#">Private</a></li>
+                            <li><a href="#">Public</a></li>
+                         </ul>
                     </li>
                 </ul>    
                    

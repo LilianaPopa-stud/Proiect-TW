@@ -18,6 +18,7 @@ require_once 'actions/fetchAlbumPhotos.php';
 <html lang="en">
     <head>
         <title><?php echo $_SESSION['album'] ?></title>
+        <meta charset="UTF-8" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <link rel="stylesheet" href="../styles/mediaStyle.css">
         <link rel="stylesheet" href="styles/album.css">
