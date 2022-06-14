@@ -1,4 +1,6 @@
 <?php
+    include ('actions/fetchPhoto.php');
+    include ('actions/addTags.php');
     include_once '../user-albums/addAlbum.php';
     $url = $_SERVER['REQUEST_URI'];         
     $url_components = parse_url($url);
@@ -12,7 +14,7 @@
     }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title><?php echo $_SESSION['filename']; ?></title>
         <meta charset="UTF-8" />
@@ -28,15 +30,42 @@
         <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     </head>
     <body>
-        <?php
-            echo '<img src="../images/'.$_SESSION['filename'].'" id="photo" class="photo" alt="post">';
-        ?>
-        <div class="photoActions">
-            <button>Edit</button>
-            <button type="button" onclick="openForm()">Add to folder</button>
-            <button>Delete</button>
-            <button>Tag</button>
+        <nav class="navbar">
+            <div class="logo">BPIC</div>
+            <div class="menu">
+                <a href="../registration/index.php"><i class="fa fa-home"> Home </i></a>
+                <a href="../user-albums/albums.php"><i class="fa fa-folder"> Albums </i> </a>
+                <a href="user.php" class="active"><i class="fa fa-user"> User </i></a>
+            </div>
+        </nav>
+
+        <div class="photoPageWrapper">
+
+            <div class="imageSide">
+            <?php echo '<img src="../images/'.$_SESSION['filename'].'" id="photo" class="photo" alt="post">';?>
+            </div>
+
+            <div class="actionSide">
+                <?php $photo = init($_SESSION['filename'], $_SESSION['username']);
+                    $_SESSION['photo'] = $photo; ?>
+                <div class="photo-info">
+                    <ul>
+                        <li><h3>Date added: </h3><p><?php echo $photo->get_created();?></p></li>
+                        <li><h3>Visibility: </h3><p><?php echo $photo->get_visibility();?></p></li>
+                        <li><h3>Tags: </h3><p><?php echo $photo->get_tags();?></p></li>
+                    </ul>
+                </div>
+                <div class="photoActions">
+                    <button>Edit</button>
+                    <button type="button" onclick="openForm()">Add to folder</button>
+                    <button>Delete</button>
+                    <button type="button" onclick="openAddTags()">Add tags</button>
+                    <button>Tag someone</button>
+                 </div>
+            </div>
+
         </div>
+
 
         <div class="form-popup" id="pickAlbum">
             <!--<form method="post" action="albums.php" class="form-container">-->
@@ -59,9 +88,19 @@
     
                 </div>
                 <button type="button" class="btn" onclick="closeForm()">Close</button>
+            
+        </div>
+        <div class="form-popup" id="addTag">
+            <form method="post" <?php echo 'action="photo.php?name='.$_SESSION['filename'].'&action=none&param=none"';?> class="form-container">
+                <h1>Add tag</h1>
+                <label for="tag_name">Tag name: </label>
+                <input type="text" placeholder="Enter tag name" name="tag_name" required>
+                <button type="submit" class="btn" name="add_tag">Add tag</button>
+                <button type="button" class="btn" onclick="closeAddTags()">Close</button>
             </form>
         </div>
 
         <script src="scripts/pickAlbum.js"></script>
+        <script src="scripts/addTag.js"></script>
     </body>
 </html>
