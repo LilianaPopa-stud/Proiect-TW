@@ -18,6 +18,7 @@ require_once 'actions/fetchAlbumPhotos.php';
 <html lang="en">
     <head>
         <title><?php echo $_SESSION['album'] ?></title>
+        <meta charset="UTF-8" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <link rel="stylesheet" href="../styles/mediaStyle.css">
         <link rel="stylesheet" href="styles/album.css">
@@ -30,9 +31,9 @@ require_once 'actions/fetchAlbumPhotos.php';
         <nav class="navbar">
             <div class="logo">BPIC</div>
             <div class="menu">
-                    <a href="index.html"><i class="fa fa-home" > Home </i></a>
-                    <a href="album-gallery.html"><i class="fa fa-folder"> Albums </i> </a>
-                    <a href="user.html"><i class="fa fa-user"> User </i></a>
+                    <a href="../registration/index.php"><i class="fa fa-home" > Home </i></a>
+                    <a href="albums.php"><i class="fa fa-folder"> Albums </i> </a>
+                    <a href="../account/user.php"><i class="fa fa-user"> User </i></a>
             </div>
         </nav>
         <div class="wrapper">
@@ -49,7 +50,7 @@ require_once 'actions/fetchAlbumPhotos.php';
                 foreach($x as $photo)
                 {
                     echo '<div class="card" >';
-                    echo '<img src="../images/'.$photo->get_filename().'">';
+                    echo '<img src="../images/'.$photo->get_filename().'" alt="'.$photo->get_filename().'">';
                     echo '</div>';
                 }?>
             </div>

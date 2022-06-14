@@ -1,4 +1,6 @@
 <?php
+    include ('actions/fetchPhoto.php');
+    include ('actions/addTags.php');
     include_once '../user-albums/addAlbum.php';
     $url = $_SERVER['REQUEST_URI'];         
     $url_components = parse_url($url);
@@ -10,9 +12,18 @@
         $_SESSION['albumToAdd'] = $params['param'];
         require_once('actions/addToAlbum.php');
     }
+    if($params['action'] == "updateVisibility")
+    {
+        $_SESSION['crtVisibility'] = $params['param'];
+        updateTag($_SESSION['filename'], $_SESSION['username']);//in fetchPhoto.php
+    }
+    if($params['action'] == "delete")
+    {
+        deletePhoto($_SESSION['filename'], $_SESSION['username']);
+    }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title><?php echo $_SESSION['filename']; ?></title>
         <meta charset="UTF-8" />
@@ -23,23 +34,81 @@
         <link rel="stylesheet" href="../styles/comment.css" />
         <link rel="stylesheet" href="../styles/photoUtilities.css" />
         <link rel="stylesheet" href="../styles/mediaStyle.css" />
+        <link rel="stylesheet" href="styles/photoPage.css" />
         <link rel="stylesheet" href="../user-albums/styles/albums.css" />
         <link href="http://fonts.cdnfonts.com/css/cooper-black" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     </head>
     <body>
-        <?php
-            echo '<img src="../images/'.$_SESSION['filename'].'" id="photo" class="photo" alt="post">';
-        ?>
-        <div class="photoActions">
-            <button>Edit</button>
-            <button type="button" onclick="openForm()">Add to folder</button>
-            <button>Delete</button>
-            <button>Tag</button>
+        <nav class="navbar">
+            <div class="logo">BPIC</div>
+            <div class="menu">
+                <a href="../registration/index.php"><i class="fa fa-home"> Home </i></a>
+                <a href="../user-albums/albums.php"><i class="fa fa-folder"> Albums </i> </a>
+                <a href="user.php" class="active"><i class="fa fa-user"> User </i></a>
+            </div>
+        </nav>
+
+        <div class="photoPageWrapper">
+
+            <div class="imageSide">
+            <?php echo '<img src="../images/'.$_SESSION['filename'].'" id="photo" class="photo" alt="post">';?>
+            </div>
+
+            <div class="actionSide">
+                <?php $photo = init($_SESSION['filename'], $_SESSION['username']);
+                    $_SESSION['photo'] = $photo; ?>
+                
+                <div class="photoActions">
+                    <button>Edit</button>
+                    <button type="button" onclick="openForm()">Add to folder</button>
+                    <button><a <?php echo 'href="photo.php?name='.$_SESSION['filename'].'&action=delete&param="'; ?>>
+                                Delete
+                            </a>
+                    </button>
+                    <button type="button" onclick="openAddTags()">Add tags</button>
+                    <button>Tag someone</button>
+                    <button>
+                        <a <?php echo 'href="photo.php?name='.$_SESSION['filename'].'&action=updateVisibility&param='.$photo->get_visibility().'"'; ?>>
+                            Make <?php if($photo->get_visibility() == "private")
+                                            echo "public";
+                                        else echo "private"; ?>
+                        </a>
+                    </button>
+                 </div>
+                 <div class="photo-info">
+                    <ul>
+                        <li><h3>Date added: </h3><p><?php echo $photo->get_created();?></p></li>
+                        <li><h3>Visibility: </h3><p><?php echo $photo->get_visibility();?></p></li>
+                        <li><h3>Tags: </h3><p><?php echo $photo->get_tags();?></p></li>
+                    </ul>
+                </div>
+                <div class="container-comm">
+                            <div class="row-gallery">
+                                <div class="col-6">
+                                    <div class="comment">
+                          
+                                    </div>
+                                    <!--End comment-->
+                                </div>
+                                 <!--End Col-->
+                            </div>
+                            <!--End row-->
+                            <div class="row-gallery">
+                                <div class="col-6">
+                                    <textarea class="input" placeholder="Write a comment..."></textarea>
+                                    <button class="primaryContained float-right" type="submit">Add comment</button>
+                                </div>
+                                 <!--end col-->
+                            </div>
+                            <!--End row-->
+                        </div>
+            </div>
+
         </div>
 
+
         <div class="form-popup" id="pickAlbum">
-            <!--<form method="post" action="albums.php" class="form-container">-->
                 <h1>Pick album</h1>
                 <div class="album-gallery">
                     <?php
@@ -59,9 +128,19 @@
     
                 </div>
                 <button type="button" class="btn" onclick="closeForm()">Close</button>
+            
+        </div>
+        <div class="form-popup" id="addTag">
+            <form method="post" <?php echo 'action="photo.php?name='.$_SESSION['filename'].'&action=none&param=none"';?> class="form-container">
+                <h1>Add tag</h1>
+                <label for="tag_name">Tag name: </label>
+                <input type="text" placeholder="Enter tag name" name="tag_name" required>
+                <button type="submit" class="btn" name="add_tag">Add tag</button>
+                <button type="button" class="btn" onclick="closeAddTags()">Close</button>
             </form>
         </div>
 
         <script src="scripts/pickAlbum.js"></script>
+        <script src="scripts/addTag.js"></script>
     </body>
 </html>

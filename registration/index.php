@@ -15,6 +15,8 @@
 <html lang="en">
 <head>
 	<title>Home</title>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
 	<link rel="stylesheet" type="text/css" href="../styles/nav-bar.css">
     <link href="http://fonts.cdnfonts.com/css/cooper-black" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
@@ -36,25 +38,50 @@
     <h1> Galeria ta virtuala </h1>
     <p> Descopera BPIC</p>
 </div>
-<div class="content">
-  	<!-- notification message -->
-  	    <?php if (isset($_SESSION['success'])) : ?>
-            <div class="error success" >
-      	        <h3>
-                     <?php 
-          	            echo $_SESSION['success']; 
-          	            unset($_SESSION['success']);
-                    ?>
-      	        </h3>
-            </div>
-  	    <?php endif ?>
 
-        <!-- logged in user information -->
-        <?php  if (isset($_SESSION['username'])) : ?>
-    	    <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-    	    <p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p>
-        <?php endif ?>
+        <div class="content">
+  	        <?php if (isset($_SESSION['success'])) : ?>
+                <div class="error success" >
+      	            <h3>
+                        <?php 
+          	                echo $_SESSION['success']; 
+          	                unset($_SESSION['success']);
+                        ?>
+      	            </h3>
+                </div>
+  	        <?php endif ?>
+            <?php  if (isset($_SESSION['username'])) : ?>
+    	        <p>Welcome, <strong><?php echo $_SESSION['username']; ?></strong>!</p>
+    	        <p> <a href="index.php?logout='1'">logout</a> </p>
+            <?php endif ?>
         </div>
-		
+        <div class="container searchField">
+                <input type="text" placeholder="Search" class="search-field" id="searchbar"/>
+                <button type="button" class="search-button" onclick="Redirect()">
+                    <img src="../resources/search.png" alt="">
+                </button>
+        </div>
+        <div class="row">
+        <div class="column">
+            <img src="../resources/1x/img1.png" alt="" style="width:100%">
+            <img src="../resources/1x/img9.png" alt="" style="width:100%">
+            <img src="../resources/1x/img8.png" alt="" style="width:100%">
+
+        </div>
+        <div class="column">
+            <img src="../resources/1x/img3.png" alt="" style="width:100%">
+            <img src="../resources/1x/img4.png" alt="" style="width:100%">
+        </div>
+        <div class="column">
+            <img src="../resources/1x/img5.png" alt="" style="width:100%">
+            <img src="../resources/1x/img7.png" alt="" style="width:100%">
+
+        </div>
+        <div class="column">
+            <img src="../resources/1x/img6.png" alt="" style="width:100%">
+            <img src="../resources/1x/img2.png" alt="" style="width:100%">
+        </div>
+    </div>
+	<script src="scripts/searchTag.js"></script>
     </body>
 </html>

@@ -4,6 +4,7 @@
 <html lang="en">
     <head>
         <title>Albums</title>
+        <meta charset="UTF-8" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <link rel="stylesheet" href="../styles/style.css">
         <link rel="stylesheet" href="../styles/mediaStyle.css">

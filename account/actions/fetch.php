@@ -20,6 +20,7 @@ if(count($errors) == 0){
             $photo->set_id($file['id']);
             $photo->set_created($file['created']);
             $photo->set_visibility($file['visibility']);
+            $photo->set_tags($file['tags']);
             array_push($userPhotos, $photo);
         }
     }

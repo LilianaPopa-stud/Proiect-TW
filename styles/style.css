@@ -20,9 +20,15 @@ a {
 .logo {
   font-family: 'Cooper Black', sans-serif;
   font-size: 2.5em;
-  color: #003060;
+  transition: 0.5s;
+  background: linear-gradient(90deg, var(--c1, #1d3679), var(--c2, #63acb0) 51%, var(--c1, #1d3679)) var(--x, 0)/ 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-left: 100px;
  }
+
+ .logo:hover { --x: 100%; }
+
   .menu {
   display: flex;
   gap: 1em;
@@ -70,6 +76,12 @@ a {
   margin: 50px auto;
   width: 700px;
   height: 100px
+}
+
+.searchField{
+  display: flex;
+  flex-direction: row;
+  height: 50px;
 }
 
 .form {

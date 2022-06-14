@@ -4,6 +4,7 @@
 <html lang="en">
     <head>
         <title>Upload image</title>
+        <meta charset="UTF-8" />
     </head>
     <body>
         <form action="uploadPage.php" method="post" enctype="multipart/form-data">

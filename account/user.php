@@ -1,6 +1,7 @@
 <?php 
 include_once('ImageInfo.php');
 include_once('actions/fetch.php');
+
  ?>
 
 <!DOCTYPE html>
@@ -61,9 +62,16 @@ include_once('actions/fetch.php');
           
             <div class="butoane-top">
                 <ul class="dropdown">
-                    <li><button type="button" class="buttons">
-                    <span class="button_icon"><ion-icon name="eye-outline"></ion-icon></span>
-                    <span class="button_text">Public</span></button>
+                    <li>
+                        <button type="button" class="buttons">
+                            <span class="button_icon"><ion-icon name="eye-outline"></ion-icon></span>
+                            <span class="button_text">Visibility</span>
+                        </button>
+                        <ul class="elemente_dropdown">
+                            <li><a href="#">All</a></li>
+                            <li><a href="#">Private</a></li>
+                            <li><a href="#">Public</a></li>
+                         </ul>
                     </li>
                 </ul>    
                    
@@ -99,6 +107,7 @@ include_once('actions/fetch.php');
             <?php
                 if(isset($_SESSION['photos'])){
                     foreach($_SESSION['photos'] as $photo){
+                        $tags = $photo->get_splitTags();
                         echo
                         '
                         <section id="app">
@@ -114,25 +123,22 @@ include_once('actions/fetch.php');
                                         </ul>
                                     </li>
                                 </ul>
-                                <ul class="dropdown">
-                                    <li><button type="button" class="buttons">
-                                            <span class="button_icon"><ion-icon name="ellipsis-horizontal-outline"></ion-icon></span>
-                                        </button>
-                                        <ul class="elemente_dropdown">
-                                            <li><a href="#">Edit</a></li>
-                                            <li><a href="#">Delete</a></li>
-                                            <li><a href="#">Add to folder</a></li>
-                                            <li><a href="#">Tag</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
                             </div> 
                             <div>
                             <a href = "photo.php?name='.$photo->get_filename().'&action=none&param=none"><img src="../images/'.$photo->get_filename().'" id="photo" class="photo" alt="post"></a>
                             </div>
-                            <div class="caption-box"> <b>'.$_SESSION['username'] .': </b> '.$photo->get_filename().'</div>
-                            <div class="tags-box"> <b> #bpic #project #group</b> </div>
-                            <div class="date">'.$photo->get_created().'</time></div>
+                            <div class="caption-box"> <b>'.$_SESSION['username'] .': </b> '.$photo->get_filename().'</div>';
+
+                            echo '<div class="tags-box">';
+                            if($tags !== ""){
+                                foreach($tags as $tag)
+                                {
+                                    echo '<b>#'.$tag.'</b><br>';
+                                }
+                            }
+                            echo '</div>';
+
+                            echo '<div class="date">'.$photo->get_created().'</time></div>
                             <div class="container-comm">
                             <div class="row-gallery">
                                 <div class="col-6">

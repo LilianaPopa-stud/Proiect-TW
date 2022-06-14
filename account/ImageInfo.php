@@ -6,6 +6,7 @@ class ImageInfo{
     public $created;
     public $visibility;
     public $albums;
+    public $tags;
 
     function __construct($name)
     {
@@ -55,6 +56,24 @@ class ImageInfo{
     function get_visibility()
     {
         return $this->visibility;
+    }
+
+    function set_tags($tags){
+        $this->tags = $tags;
+    }
+
+    function get_tags(){
+        return $this->tags;
+    }
+
+    function get_splitTags()
+    {
+        $str = $this->tags;
+        if($str !== "none"){
+            $str = explode(',', $this->tags);
+        }
+        else $str = "";
+        return $str;
     }
 }
 ?>
