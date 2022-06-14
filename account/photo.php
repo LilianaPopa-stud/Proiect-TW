@@ -17,6 +17,10 @@
         $_SESSION['crtVisibility'] = $params['param'];
         updateTag($_SESSION['filename'], $_SESSION['username']);//in fetchPhoto.php
     }
+    if($params['action'] == "delete")
+    {
+        deletePhoto($_SESSION['filename'], $_SESSION['username']);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,7 +62,10 @@
                 <div class="photoActions">
                     <button>Edit</button>
                     <button type="button" onclick="openForm()">Add to folder</button>
-                    <button>Delete</button>
+                    <button><a <?php echo 'href="photo.php?name='.$_SESSION['filename'].'&action=delete&param="'; ?>>
+                                Delete
+                            </a>
+                    </button>
                     <button type="button" onclick="openAddTags()">Add tags</button>
                     <button>Tag someone</button>
                     <button>

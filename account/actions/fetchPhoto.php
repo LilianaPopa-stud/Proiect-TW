@@ -35,3 +35,13 @@ function updateTag($fileName, $username)
     header('location: photo.php?name='.$_SESSION['filename'].'&action=none&param=none');
 
 }
+
+function deletePhoto($fileName, $username)
+{
+    $db = mysqli_connect('localhost', 'root', '', 'proiect_tw');
+    $query = "DELETE FROM images where filename='$fileName' and username='$username'";
+    mysqli_query($db, $query);
+    unlink('../images/'.$fileName);
+    header('location: user.php');
+
+}
