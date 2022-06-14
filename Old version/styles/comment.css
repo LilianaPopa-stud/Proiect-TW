@@ -1,0 +1,47 @@
+.container-comm{
+    width: 550px;
+    height: 200px;
+	background:transparent;
+}
+section#app{
+	margin: auto;
+}
+
+.comment {
+	display: block;
+	transition: all 1s;
+}
+
+.container-comm textarea {
+	width: 560px;
+    height: 80%;
+	border: none;
+	background: white;
+	padding: 10px 0px;
+	margin-left: 28px;
+	border-bottom: 2px solid #F0F0F0;
+	transition: all 0.5s;
+	margin-top: 15px;
+}
+
+button.primaryContained {
+	background: #f9f9f9;
+	color: black;
+	padding: 10px 10px;
+	border: none;
+	margin-top: 0px;
+	cursor: pointer;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	font-family: 'Roboto';
+	transition: 1s all;
+	font-size: 10px;
+	border-radius: 5px;
+	float: right;
+
+}
+
+button.primaryContained:hover {
+	background: #F0F0F0;
+}
+
