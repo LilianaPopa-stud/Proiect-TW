@@ -38,7 +38,7 @@ if(isset($_POST["submit"])){
     else{
         array_push($errors, "No image selected");
     }
-    header('location: user.php');
+   // header('location: user.php');
 }
 
 echo $status;

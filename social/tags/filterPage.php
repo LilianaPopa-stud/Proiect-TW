@@ -1,4 +1,5 @@
 <?php
+include_once 'fetchFilters.php';
     $url = $_SERVER['REQUEST_URI'];         
     $url_components = parse_url($url);
 
@@ -19,6 +20,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="../../styles/mediaStyle.css" />
         <link rel="stylesheet" href="../../styles/style.css" />
+        <link rel="stylesheet" href="../../user-albums/styles/album.css" />
     </head>
     <body>
         <nav class="navbar">
@@ -41,6 +43,33 @@
                 }
              ?></h1>
         </div>
+        <div class="wrapper">
+        <div class="photo-gallery">
+        <?php 
+        if(count($filter) == 0) echo "Nothing found :(";
+        else{
+                $x = get_tagPhotos($filter);
+                if(count($x) == 0) echo "<h1>Nothing found :/</h1>";
+                foreach($x as $photo)
+                {
+                    $cardType = "";
+                    $imgsize_arr = getimagesize('../../images/'.$photo->get_filename());
+                    $img_width = $imgsize_arr[0];
+                    $img_height = $imgsize_arr[1];
+                    if($img_width > 5000)
+                        $cardType = "card-wide";
+                    else if($img_height > 3500)
+                    {
+                        $cardType = "card-tall";
+                    }
+                    //echo "Image width: ".$img_width."<br/>Image height:".$img_height;
+                    echo '<div class="card '.$cardType.'" >';
+                    echo '<a href = "../../account/photo.php?name='.$photo->get_filename().'&action=none&param=none">
+                            <img src="../../images/'.$photo->get_filename().'" alt="'.$photo->get_filename().'"></a>';
+                    echo '</div>';
+                }}?>
+            </div>
+            </div>
     </body>
 
 </html>

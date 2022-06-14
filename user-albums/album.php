@@ -38,19 +38,31 @@ require_once 'actions/fetchAlbumPhotos.php';
         </nav>
         <div class="wrapper">
             <div class="album-title">
-                <p>Album Title</p>
+                <p><?php echo  $_SESSION['album']; ?></p>
             </div>
             <div class="photo-gallery">
-                <div class="card new-photo">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z"/></svg>
+                <!--<div class="card new-photo">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z"/></svg>
                     Add photo
-                </div>
+                </div>-->
                 <?php 
                 $x = get_albumPhotos();
                 foreach($x as $photo)
                 {
-                    echo '<div class="card" >';
-                    echo '<img src="../images/'.$photo->get_filename().'" alt="'.$photo->get_filename().'">';
+                    $cardType = "";
+                    $imgsize_arr = getimagesize('../images/'.$photo->get_filename());
+                    $img_width = $imgsize_arr[0];
+                    $img_height = $imgsize_arr[1];
+                    if($img_width > 5000)
+                        $cardType = "card-wide";
+                    else if($img_height > 3500)
+                    {
+                        $cardType = "card-tall";
+                    }
+                    //echo "Image width: ".$img_width."<br/>Image height:".$img_height;
+                    echo '<div class="card '.$cardType.'" >';
+                    echo '<a href = "../account/photo.php?name='.$photo->get_filename().'&action=none&param=none">
+                            <img src="../images/'.$photo->get_filename().'" alt="'.$photo->get_filename().'"></a>';
                     echo '</div>';
                 }?>
             </div>
