@@ -5,6 +5,7 @@ class ImageInfo{
     public $owner;
     public $created;
     public $visibility;
+    public $albums;
 
     function __construct($name)
     {
@@ -24,6 +25,16 @@ class ImageInfo{
     function set_visibility($visibility)
     {
         $this->visibility = $visibility;
+    }
+    
+    function set_albums($albums)
+    {
+        $this->albums = $albums;
+    }
+
+    function get_albums()
+    {
+        return $this->albums;
     }
 
     function get_id()
