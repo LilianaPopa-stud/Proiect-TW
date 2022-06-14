@@ -12,6 +12,11 @@
         $_SESSION['albumToAdd'] = $params['param'];
         require_once('actions/addToAlbum.php');
     }
+    if($params['action'] == "updateVisibility")
+    {
+        $_SESSION['crtVisibility'] = $params['param'];
+        updateTag($_SESSION['filename'], $_SESSION['username']);//in fetchPhoto.php
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,6 +66,13 @@
                     <button>Delete</button>
                     <button type="button" onclick="openAddTags()">Add tags</button>
                     <button>Tag someone</button>
+                    <button>
+                        <a <?php echo 'href="photo.php?name='.$_SESSION['filename'].'&action=updateVisibility&param='.$photo->get_visibility().'"'; ?>>
+                            Make <?php if($photo->get_visibility() == "private")
+                                            echo "public";
+                                        else echo "private"; ?>
+                        </a>
+                    </button>
                  </div>
             </div>
 
@@ -68,7 +80,6 @@
 
 
         <div class="form-popup" id="pickAlbum">
-            <!--<form method="post" action="albums.php" class="form-container">-->
                 <h1>Pick album</h1>
                 <div class="album-gallery">
                     <?php

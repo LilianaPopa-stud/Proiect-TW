@@ -19,3 +19,19 @@ function init($fileName, $username)
     }
     return $image;
 }
+
+function updateTag($fileName, $username)
+{
+    $db = mysqli_connect('localhost', 'root', '', 'proiect_tw');
+    $current = $_SESSION['crtVisibility'];
+
+    $update = "";
+    if($current == "private")
+        $update = "public";
+    else $update = "private";
+
+    $query = "UPDATE images SET visibility='$update' where filename='$fileName' and username='$username'";
+    mysqli_query($db, $query);
+    header('location: photo.php?name='.$_SESSION['filename'].'&action=none&param=none');
+
+}
