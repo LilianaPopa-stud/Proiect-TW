@@ -1,0 +1,210 @@
+body
+{   padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+
+}
+h1
+{   font-size: 2.25rem;
+    font-weight: 700;
+    
+}
+h2
+{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+a
+{
+    text-decoration: none;
+    color: rgb(81, 80, 80);
+}
+a:hover
+{
+    text-decoration: underline;
+}
+.small
+{
+    font-size: 80%;
+    text-align: center;
+}
+.split-screen
+{
+    display: flex;
+    flex-direction: column;
+}
+.left
+{
+    height: 200px;
+
+}
+
+.left, .right
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*.left
+{
+    
+    background: url(/signup/login/flame-photographing.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center left;
+
+}*/
+.ilustration
+{
+    display: inline-block;
+    width: 180px;
+    vertical-align: top;
+    margin-top: 30px;
+   
+}
+.left .copy
+{   font-family: Cooper Black;
+    color:#10294c;
+    text-align: left;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    
+}
+
+
+
+
+.left p
+{
+    font-weight: 400;
+    
+
+}
+
+.right .copy
+{
+    color: #020408;
+    text-align: left;
+    font-weight: 700;
+    
+}
+
+.right .copy p
+{
+    margin: 1.5em 0;
+    font-size: 0.875rem;
+
+}
+
+.right form
+{
+    width: 328px;
+}
+form input[type="text"],form input[type="password"]
+{
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 1px solid #c4c4c4;
+    padding: 1em;
+    margin-bottom: 1.25rem;
+    font-size: 0.875rem;
+}
+
+label
+{
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+}
+
+.input-container.password
+{position: relative;
+}
+.input-container.password i
+{
+position: absolute;
+top: 42px;
+right:16px;
+}
+
+.signup-button
+{
+    display: block;
+    width:100%;
+    background: #2257a1;
+    color: white;
+    font-weight: 700;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    /*text-transform: uppercase;*/
+    letter-spacing: 0.5px;
+
+}
+.signup-button:hover
+{
+    background: #10294c;
+    cursor: pointer;
+}
+
+.credits
+{
+    color: grey;
+    display: block;
+    text-align:center;
+    font-size: 0.5rem;
+    
+}
+.credits a:hover
+{
+    text-decoration: underline;
+}
+.login-container
+{
+    text-align:center;
+    color: #020408;
+}
+.login-container a
+{
+    color: #2257a1;
+}
+
+.login-container a:hover
+{
+    color:#10294c;
+}
+
+
+@media screen and (min-width: 900px)
+{
+    .split-screen
+    {
+        flex-direction: row;
+        height: 100vh;
+    }
+    .left, .right
+    {
+        display: flex;
+        width: 50%;
+        height: auto;
+    }
+    .ilustration
+    {
+        display: inline-block;
+        width: 300px;
+        vertical-align: top;
+        margin-top: 30px;
+        
+    }
+    .left .copy
+    {margin-bottom: 50px;
+
+    }
+
+   
+}
