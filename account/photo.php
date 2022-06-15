@@ -60,7 +60,7 @@
                     $_SESSION['photo'] = $photo; ?>
                 
                 <div class="photoActions">
-                    <button>Edit</button>
+                    <button><a href="photo edit/editPage.php">Edit</a></button>
                     <button type="button" onclick="openForm()">Add to folder</button>
                     <button><a <?php echo 'href="photo.php?name='.$_SESSION['filename'].'&action=delete&param="'; ?>>
                                 Delete
