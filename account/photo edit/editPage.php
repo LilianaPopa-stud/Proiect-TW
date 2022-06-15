@@ -1,3 +1,10 @@
+<?php
+    $url = $_SERVER['REQUEST_URI'];         
+    $url_components = parse_url($url);
+
+    parse_str($url_components['query'], $params);
+    $_SESSION['filename'] = $params['photo'];
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -23,8 +30,9 @@
         <div class="wrapper">
             <div class="photo-display" id="pd">
 
-                    <img src="https://images.pexels.com/photos/5825359/pexels-photo-5825359.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt=""
+                    <img <?php echo 'src="../../images/user-photos1/'.$_SESSION['filename'].'" ';?> alt=""
                         id="photo">
+                    <h1 id="response"></h1>
 
             </div>
             <div class="filter-display">
@@ -97,9 +105,11 @@
                     </div>
                 </div>
                 <div class="buttons">
-                    <button type="button" class="btn" onclick="DisplayChanges()">Download</button>
+                    <button type="button" class="btn">Download</button>
                     <button class="btn">Reset</button>
-                    <button class="btn">Upload</button>
+                    <button type="button" class="btn" <?php echo 'onclick="submitEdit(';
+                                                            echo "'".$_SESSION['filename']."'";
+                                                            echo ')"'; ?>>Upload</button>
                 </div>
             </div>
         </div>

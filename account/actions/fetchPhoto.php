@@ -16,6 +16,7 @@ function init($fileName, $username)
         $image->set_created($file['created']);
         $image->set_visibility($file['visibility']);
         $image->set_tags($file['tags']);
+        $image->set_edits($file['edits']);
     }
     return $image;
 }
@@ -41,7 +42,7 @@ function deletePhoto($fileName, $username)
     $db = mysqli_connect('localhost', 'root', '', 'proiect_tw');
     $query = "DELETE FROM images where filename='$fileName' and username='$username'";
     mysqli_query($db, $query);
-    unlink('../images/'.$fileName);
+    unlink('../images/user-photos1/'.$fileName);
     header('location: user.php');
 
 }

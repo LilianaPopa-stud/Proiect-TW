@@ -50,17 +50,23 @@
         </nav>
 
         <div class="photoPageWrapper">
+            <?php $photo = init($_SESSION['filename'], $_SESSION['username']);
+                $_SESSION['photo'] = $photo; ?>
 
             <div class="imageSide">
-            <?php echo '<img src="../images/'.$_SESSION['filename'].'" id="photo" class="photo" alt="post">';?>
+                <?php
+                    $edits = $photo->get_edits(); 
+                    if($edits == "unedited")
+                        $edits = "";
+                    echo '<img src="../images/user-photos1/'.$_SESSION['filename'].'" id="photo" class="photo" alt="post"
+                     style="filter:'.$edits.'">';
+                ?>
             </div>
 
             <div class="actionSide">
-                <?php $photo = init($_SESSION['filename'], $_SESSION['username']);
-                    $_SESSION['photo'] = $photo; ?>
                 
                 <div class="photoActions">
-                    <button><a href="photo edit/editPage.php">Edit</a></button>
+                    <button><a <?php echo 'href="photo edit/editPage.php?photo='.$_SESSION['filename'].'"'; ?>>Edit</a></button>
                     <button type="button" onclick="openForm()">Add to folder</button>
                     <button><a <?php echo 'href="photo.php?name='.$_SESSION['filename'].'&action=delete&param="'; ?>>
                                 Delete

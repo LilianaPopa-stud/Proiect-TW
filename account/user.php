@@ -108,6 +108,9 @@ include_once('actions/fetch.php');
                 if(isset($_SESSION['photos'])){
                     foreach($_SESSION['photos'] as $photo){
                         $tags = $photo->get_splitTags();
+                        $edits = $photo->get_edits();
+                        if($edits == "unedited")
+                            $edits = "";
                         echo
                         '
                         <section id="app">
@@ -125,7 +128,10 @@ include_once('actions/fetch.php');
                                 </ul>
                             </div> 
                             <div>
-                            <a href = "photo.php?name='.$photo->get_filename().'&action=none&param=none"><img src="../images/'.$photo->get_filename().'" id="photo" class="photo" alt="post"></a>
+                            <a href = "photo.php?name='.$photo->get_filename().'&action=none&param=none">
+                                <img src="../images/user-photos1/'.$photo->get_filename().'" id="photo" class="photo" alt="post"
+                                 style="filter:'.$edits.';">
+                            </a>
                             </div>
                             <div class="caption-box"> <b>'.$_SESSION['username'] .': </b> '.$photo->get_filename().'</div>';
 

@@ -18,6 +18,7 @@ if(count($errors) == 0){
             $photo = new ImageInfo($file['filename']);
             $photo->set_created($file['created']);
             $photo->set_tags($file['tags']);
+            $photo->set_edits($file['edits']);
             array_push($publicp, $photo);
         }
     }

@@ -50,7 +50,7 @@ require_once 'actions/fetchAlbumPhotos.php';
                 foreach($x as $photo)
                 {
                     $cardType = "";
-                    $imgsize_arr = getimagesize('../images/'.$photo->get_filename());
+                    $imgsize_arr = getimagesize('../images/user-photos1/'.$photo->get_filename());
                     $img_width = $imgsize_arr[0];
                     $img_height = $imgsize_arr[1];
                     if($img_width > 5000)
@@ -59,10 +59,14 @@ require_once 'actions/fetchAlbumPhotos.php';
                     {
                         $cardType = "card-tall";
                     }
+                    $edits = $photo->get_edits(); 
+                    if($edits == "unedited")
+                        $edits = "";
                     //echo "Image width: ".$img_width."<br/>Image height:".$img_height;
                     echo '<div class="card '.$cardType.'" >';
                     echo '<a href = "../account/photo.php?name='.$photo->get_filename().'&action=none&param=none">
-                            <img src="../images/'.$photo->get_filename().'" alt="'.$photo->get_filename().'"></a>';
+                            <img src="../images/user-photos1/'.$photo->get_filename().'" alt="'.$photo->get_filename().'"
+                            style="filter:'.$edits.';"></a>';
                     echo '</div>';
                 }?>
             </div>
