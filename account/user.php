@@ -1,7 +1,14 @@
 <?php 
-include_once('ImageInfo.php');
+include_once('actions/ImageInfo.php');
 include_once('actions/fetch.php');
+    $url = $_SERVER['REQUEST_URI'];         
+    $url_components = parse_url($url);
 
+    if(array_key_exists('query', $url_components)){
+        parse_str($url_components['query'], $params);
+        $_SESSION['status'] = $params['visibility'];
+    }
+    else $_SESSION['status'] = "seeAll";
  ?>
 
 <!DOCTYPE html>
@@ -68,9 +75,9 @@ include_once('actions/fetch.php');
                             <span class="button_text">Visibility</span>
                         </button>
                         <ul class="elemente_dropdown">
-                            <li><a href="#">All</a></li>
-                            <li><a href="#">Private</a></li>
-                            <li><a href="#">Public</a></li>
+                            <li><a href="user.php">All</a></li>
+                            <li><a href="user.php?visibility=private">Private</a></li>
+                            <li><a href="user.php?visibility=public">Public</a></li>
                          </ul>
                     </li>
                 </ul>    
@@ -111,6 +118,7 @@ include_once('actions/fetch.php');
                         $edits = $photo->get_edits();
                         if($edits == "unedited")
                             $edits = "";
+                        if($_SESSION['status'] == $photo->get_visibility() || $_SESSION['status'] == "seeAll"){
                         echo
                         '
                         <section id="app">
@@ -133,13 +141,13 @@ include_once('actions/fetch.php');
                                  style="filter:'.$edits.';">
                             </a>
                             </div>
-                            <div class="caption-box"> <b>'.$_SESSION['username'] .': </b> '.$photo->get_filename().'</div>';
+                            <div class="caption-box"> <b>'.$_SESSION['username'] .'</div>';
 
                             echo '<div class="tags-box">';
                             if($tags !== ""){
                                 foreach($tags as $tag)
                                 {
-                                    echo '<b>#'.$tag.'</b><br>';
+                                    echo '<b> #'.$tag.'</b>';
                                 }
                             }
                             echo '</div>';
@@ -168,6 +176,7 @@ include_once('actions/fetch.php');
                         <!--End Container-->
                     </section>
                     <!--end app-->';
+                        }
 
                     }
                 }

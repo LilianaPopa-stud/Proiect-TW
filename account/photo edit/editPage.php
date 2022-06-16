@@ -1,4 +1,6 @@
 <?php
+    //include '../actions/fetchPhoto.php';
+    include '../actions/ImageInfo.php';
     $url = $_SERVER['REQUEST_URI'];         
     $url_components = parse_url($url);
 
@@ -29,9 +31,7 @@
         </nav>
         <div class="wrapper">
             <div class="photo-display" id="pd">
-
-                    <img <?php echo 'src="../../images/user-photos1/'.$_SESSION['filename'].'" ';?> alt=""
-                        id="photo">
+                    <img <?php echo 'src="../../images/user-photos1/'.$_SESSION['filename'].'" ';?> alt="" id="photo">
                     <h1 id="response"></h1>
 
             </div>

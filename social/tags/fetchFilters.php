@@ -1,5 +1,5 @@
 <?php
-include_once('../../account/ImageInfo.php');
+include_once('../../account/actions/ImageInfo.php');
 session_start();
 function get_tagPhotos($filters){
 $username = "";
@@ -22,7 +22,7 @@ if(count($errors) == 0){
             array_push($publicp, $photo);
         }
     }
-
+    
     
     foreach($publicp as $photo)
     {
@@ -31,7 +31,7 @@ if(count($errors) == 0){
         foreach($filters as $flt)
         {
             $found = false;
-            foreach($str as $ptag){
+            foreach((array)$str as $ptag){
                 if($ptag == $flt){
                     $found = true;
                 }

@@ -1,3 +1,4 @@
+
 function DisplayChanges()
 {
     var blurSlider = document.getElementById("blur");

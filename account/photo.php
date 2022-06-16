@@ -1,6 +1,6 @@
 <?php
-    include ('actions/fetchPhoto.php');
-    include ('actions/addTags.php');
+    include_once ('actions/fetchPhoto.php');
+    include_once ('actions/addTags.php');
     include_once '../user-albums/addAlbum.php';
     $url = $_SERVER['REQUEST_URI'];         
     $url_components = parse_url($url);
@@ -20,6 +20,15 @@
     if($params['action'] == "delete")
     {
         deletePhoto($_SESSION['filename'], $_SESSION['username']);
+    }
+    if($params['action'] == "comment")
+    {
+        if($params['param'] == "accept")
+            acceptComm($_SESSION['filename']);
+        else if($params['param'] == "reject")
+        {
+            rejectComm($_SESSION['filename']);
+        }   
     }
 ?>
 <!DOCTYPE html>
@@ -50,8 +59,12 @@
         </nav>
 
         <div class="photoPageWrapper">
-            <?php $photo = init($_SESSION['filename'], $_SESSION['username']);
-                $_SESSION['photo'] = $photo; ?>
+            <?php 
+                $photo = initPhoto($_SESSION['filename']);
+                $_SESSION['photo'] = $photo; 
+                if($photo->get_username() == $_SESSION['username'])
+                    echo "You own this photo";
+                else echo $photo->get_username()." owns this photo";?>
 
             <div class="imageSide">
                 <?php
@@ -64,24 +77,26 @@
             </div>
 
             <div class="actionSide">
-                
-                <div class="photoActions">
-                    <button><a <?php echo 'href="photo edit/editPage.php?photo='.$_SESSION['filename'].'"'; ?>>Edit</a></button>
+                <?php if($_SESSION['username'] == $photo->get_username()){
+                echo '<div class="photoActions">';
+                    echo' <button><a href="photo edit/editPage.php?photo='.$_SESSION['filename'].'" >Edit</a></button>
                     <button type="button" onclick="openForm()">Add to folder</button>
-                    <button><a <?php echo 'href="photo.php?name='.$_SESSION['filename'].'&action=delete&param="'; ?>>
+                    <button><a href="photo.php?name='.$_SESSION['filename'].'&action=delete&param=">
                                 Delete
                             </a>
                     </button>
                     <button type="button" onclick="openAddTags()">Add tags</button>
                     <button>Tag someone</button>
                     <button>
-                        <a <?php echo 'href="photo.php?name='.$_SESSION['filename'].'&action=updateVisibility&param='.$photo->get_visibility().'"'; ?>>
-                            Make <?php if($photo->get_visibility() == "private")
-                                            echo "public";
-                                        else echo "private"; ?>
-                        </a>
+                        <a href="photo.php?name='.$_SESSION['filename'].'&action=updateVisibility&param='.$photo->get_visibility().'">
+                            Make '; 
+                            if($photo->get_visibility() == "private")
+                                echo "public";
+                            else echo "private"; 
+                        echo '</a>
                     </button>
-                 </div>
+                 </div>'; 
+                }?>
                  <div class="photo-info">
                     <ul>
                         <li><h3>Date added: </h3><p><?php echo $photo->get_created();?></p></li>
@@ -90,24 +105,37 @@
                     </ul>
                 </div>
                 <div class="container-comm">
-                            <div class="row-gallery">
-                                <div class="col-6">
-                                    <div class="comment">
-                          
+                    <h2>Comments</h2>
+                    <?php $comments = getPhotoComments($_SESSION['filename']);
+                        foreach($comments as $comment){
+                            echo '<div class="row-gallery">
+                                    <div class="col-6">';
+                                            if($comment->get_status()=="unaccepted" && $_SESSION['username'] == $photo->get_username())
+                                            {
+                                                echo '<div class="uncomment">';
+                                                echo '<p class="unacceptedComm"><b>'.$comment->get_from().':</b> '.$comment->get_text().'</p>';
+                                                echo '<a href="photo.php?name='.$_SESSION['filename'].'&action=comment&param=accept"><button class="uncommBtn commAcc">Accept</button></a>';
+                                                echo '<a href="photo.php?name='.$_SESSION['filename'].'&action=comment&param=reject"><button class="uncommBtn commRej">Reject</button></a>';
+                                            }
+                                            else if($comment->get_status()=="accepted")
+                                            {
+                                                echo '<div class="comment">';
+                                                echo '<p><b>'.$comment->get_from().':</b> '.$comment->get_text().'</p>';
+                                            }
+                                    echo '</div>
                                     </div>
-                                    <!--End comment-->
-                                </div>
-                                 <!--End Col-->
-                            </div>
+                                </div>';
+                        }?>
                             <!--End row-->
                             <div class="row-gallery">
                                 <div class="col-6">
-                                    <textarea class="input" placeholder="Write a comment..."></textarea>
-                                    <button class="primaryContained float-right" type="submit">Add comment</button>
+                                    <form method="post" action="actions/addComment.php">
+                                        <input type="text" class="input" placeholder="Write a comment..." name="comm" require></input>
+                                        <button class="primaryContained float-right" type="submit" name="add_comm">Add comment</button>
+                                
+                                    </form>
                                 </div>
-                                 <!--end col-->
                             </div>
-                            <!--End row-->
                         </div>
             </div>
 
@@ -139,6 +167,7 @@
         <div class="form-popup" id="addTag">
             <form method="post" <?php echo 'action="photo.php?name='.$_SESSION['filename'].'&action=none&param=none"';?> class="form-container">
                 <h1>Add tag</h1>
+                <?php include('../registration/errors.php'); ?>
                 <label for="tag_name">Tag name: </label>
                 <input type="text" placeholder="Enter tag name" name="tag_name" required>
                 <button type="submit" class="btn" name="add_tag">Add tag</button>
