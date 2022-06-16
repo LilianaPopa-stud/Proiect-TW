@@ -15,7 +15,7 @@ if(isset($_POST["submit"])){
         $allowTypes = array('jpg','png','jpeg','gif');
         if(in_array($fileType, $allowTypes)){
             $tempname = $_FILES["image"]["tmp_name"];
-            $folder = "../images/".$fileName;
+            $folder = "../images/user-photos1/".$fileName;
 
             $query = "INSERT INTO images(username, filename, created)
             VALUES ('" . mysqli_real_escape_string($db, $_SESSION['username']) . "',
@@ -38,7 +38,7 @@ if(isset($_POST["submit"])){
     else{
         array_push($errors, "No image selected");
     }
-    header('location: user.php');
+   // header('location: user.php');
 }
 
 echo $status;

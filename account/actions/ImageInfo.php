@@ -7,6 +7,7 @@ class ImageInfo{
     public $visibility;
     public $albums;
     public $tags;
+    public $edits;
 
     function __construct($name)
     {
@@ -16,6 +17,16 @@ class ImageInfo{
     function set_id($id)
     {
         $this->id = $id;
+    }
+
+    function set_username($username)
+    {
+        $this->username = $username;
+    }
+
+    function get_username()
+    {
+        return $this->username;
     }
 
     function set_created($created)
@@ -65,6 +76,15 @@ class ImageInfo{
     function get_tags(){
         return $this->tags;
     }
+
+    function set_edits($edits){
+        $this->edits = $edits;
+    }
+
+    function get_edits(){
+        return $this->edits;
+    }
+
 
     function get_splitTags()
     {

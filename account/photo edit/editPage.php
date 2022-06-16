@@ -1,0 +1,118 @@
+<?php
+    //include '../actions/fetchPhoto.php';
+    include '../actions/ImageInfo.php';
+    $url = $_SERVER['REQUEST_URI'];         
+    $url_components = parse_url($url);
+
+    parse_str($url_components['query'], $params);
+    $_SESSION['filename'] = $params['photo'];
+?>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Photo edit</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <link rel="stylesheet" href="styles/photo-edit-style.css">
+        <link rel="stylesheet" href="../../styles/style.css">
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+        <link href="http://fonts.cdnfonts.com/css/cooper-black" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="logo">BPIC</div>
+            <div class="menu">
+                    <a href="../../registration/index.php"><i class="fa fa-home" > Home </i></a>
+                    <a href="../../user-albums/albums.php"><i class="fa fa-folder"> Albums </i> </a>
+                    <a href="../user.php"><i class="fa fa-user"> User </i></a>
+            </div>
+        </nav>
+        <div class="wrapper">
+            <div class="photo-display" id="pd">
+                    <img <?php echo 'src="../../images/user-photos1/'.$_SESSION['filename'].'" ';?> alt="" id="photo">
+                    <h1 id="response"></h1>
+
+            </div>
+            <div class="filter-display">
+                <div class="title">
+                    <p>Edit</p>
+                </div>
+                <div class="filter-list">
+                    <div class="filter">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M150.7 92.77C195 58.27 251.8 32 320 32C400.8 32 465.5 68.84 512.6 112.6C559.4 156 590.7 207.1 605.5 243.7C608.8 251.6 608.8 260.4 605.5 268.3C592.1 300.6 565.2 346.1 525.6 386.7L630.8 469.1C641.2 477.3 643.1 492.4 634.9 502.8C626.7 513.2 611.6 515.1 601.2 506.9L9.196 42.89C-1.236 34.71-3.065 19.63 5.112 9.196C13.29-1.236 28.37-3.065 38.81 5.112L150.7 92.77zM223.1 149.5L313.4 220.3C317.6 211.8 320 202.2 320 191.1C320 180.5 316.1 169.7 311.6 160.4C314.4 160.1 317.2 159.1 320 159.1C373 159.1 416 202.1 416 255.1C416 269.7 413.1 282.7 407.1 294.5L446.6 324.7C457.7 304.3 464 280.9 464 255.1C464 176.5 399.5 111.1 320 111.1C282.7 111.1 248.6 126.2 223.1 149.5zM320 480C239.2 480 174.5 443.2 127.4 399.4C80.62 355.1 49.34 304 34.46 268.3C31.18 260.4 31.18 251.6 34.46 243.7C44 220.8 60.29 191.2 83.09 161.5L177.4 235.8C176.5 242.4 176 249.1 176 255.1C176 335.5 240.5 400 320 400C338.7 400 356.6 396.4 373 389.9L446.2 447.5C409.9 467.1 367.8 480 320 480H320z"/></svg>
+                        Blur
+                        <div class="slide-container">
+                            <input type="range" min="0" max="10" value="0" class="slider" oninput="DisplayChanges()" id="blur">
+                        </div>
+                    </div>
+                    <div class="filter">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+                        Brightness
+                        <div class="slide-container">
+                            <input type="range" min="1" max="200" value="100" class="slider" oninput="DisplayChanges()" id="brightn">
+                        </div>
+                    </div>
+                    <div class="filter">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 64V448C362 448 448 362 448 256C448 149.1 362 64 256 64z"/></svg>
+                        Contrast
+                        <div class="slide-container">
+                            <input type="range" min="1" max="200" value="100" class="slider" oninput="DisplayChanges()" id="contrast">
+                        </div>
+                    </div>
+                    <div class="filter">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M128 184C128 206.1 110.1 224 88 224H40C17.91 224 0 206.1 0 184V136C0 113.9 17.91 96 40 96H88C110.1 96 128 113.9 128 136V184zM128 376C128 398.1 110.1 416 88 416H40C17.91 416 0 398.1 0 376V328C0 305.9 17.91 288 40 288H88C110.1 288 128 305.9 128 328V376zM160 136C160 113.9 177.9 96 200 96H248C270.1 96 288 113.9 288 136V184C288 206.1 270.1 224 248 224H200C177.9 224 160 206.1 160 184V136zM288 376C288 398.1 270.1 416 248 416H200C177.9 416 160 398.1 160 376V328C160 305.9 177.9 288 200 288H248C270.1 288 288 305.9 288 328V376zM320 136C320 113.9 337.9 96 360 96H408C430.1 96 448 113.9 448 136V184C448 206.1 430.1 224 408 224H360C337.9 224 320 206.1 320 184V136zM448 376C448 398.1 430.1 416 408 416H360C337.9 416 320 398.1 320 376V328C320 305.9 337.9 288 360 288H408C430.1 288 448 305.9 448 328V376z"/></svg>
+                        Grayscale
+                        <div class="slide-container">
+                            <input type="range" min="0" max="100" value="0" class="slider" oninput="DisplayChanges()" id="bw">
+                        </div>
+                    </div>
+                    <div class="filter">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M482.8 29.23C521.7 68.21 521.7 131.4 482.8 170.4L381.2 271.9L390.6 281.4C403.1 293.9 403.1 314.1 390.6 326.6C378.1 339.1 357.9 339.1 345.4 326.6L185.4 166.6C172.9 154.1 172.9 133.9 185.4 121.4C197.9 108.9 218.1 108.9 230.6 121.4L240.1 130.8L341.6 29.23C380.6-9.744 443.8-9.744 482.8 29.23L482.8 29.23zM55.43 323.3L176.1 202.6L221.4 247.9L100.7 368.6C97.69 371.6 96 375.6 96 379.9V416H132.1C136.4 416 140.4 414.3 143.4 411.3L264.1 290.6L309.4 335.9L188.7 456.6C173.7 471.6 153.3 480 132.1 480H89.69L49.75 506.6C37.06 515.1 20.16 513.4 9.373 502.6C-1.413 491.8-3.086 474.9 5.375 462.2L32 422.3V379.9C32 358.7 40.43 338.3 55.43 323.3L55.43 323.3z"/></svg>
+                        Hue
+                        <div class="slide-container">
+                            <input type="range" min="-360" max="360" value="0" class="slider" oninput="DisplayChanges()" id="hue">
+                        </div>
+                    </div>
+                    <div class="filter">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M449.9 39.96l-48.5 48.53C362.5 53.19 311.4 32 256 32C161.5 32 78.59 92.34 49.58 182.2c-5.438 16.81 3.797 34.88 20.61 40.28c16.97 5.5 34.86-3.812 40.3-20.59C130.9 138.5 189.4 96 256 96c37.96 0 73 14.18 100.2 37.8L311.1 178C295.1 194.8 306.8 223.4 330.4 224h146.9C487.7 223.7 496 215.3 496 204.9V59.04C496 34.99 466.9 22.95 449.9 39.96zM441.8 289.6c-16.94-5.438-34.88 3.812-40.3 20.59C381.1 373.5 322.6 416 256 416c-37.96 0-73-14.18-100.2-37.8L200 334C216.9 317.2 205.2 288.6 181.6 288H34.66C24.32 288.3 16 296.7 16 307.1v145.9c0 24.04 29.07 36.08 46.07 19.07l48.5-48.53C149.5 458.8 200.6 480 255.1 480c94.45 0 177.4-60.34 206.4-150.2C467.9 313 458.6 294.1 441.8 289.6z"/></svg>
+                        Invert
+                        <div class="slide-container">
+                            <input type="range" min="0" max="100" value="0" class="slider" oninput="DisplayChanges()" id="invert">
+                        </div>
+                    </div>
+                    <div class="filter">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M279.6 160.4C282.4 160.1 285.2 160 288 160C341 160 384 202.1 384 256C384 309 341 352 288 352C234.1 352 192 309 192 256C192 253.2 192.1 250.4 192.4 247.6C201.7 252.1 212.5 256 224 256C259.3 256 288 227.3 288 192C288 180.5 284.1 169.7 279.6 160.4zM480.6 112.6C527.4 156 558.7 207.1 573.5 243.7C576.8 251.6 576.8 260.4 573.5 268.3C558.7 304 527.4 355.1 480.6 399.4C433.5 443.2 368.8 480 288 480C207.2 480 142.5 443.2 95.42 399.4C48.62 355.1 17.34 304 2.461 268.3C-.8205 260.4-.8205 251.6 2.461 243.7C17.34 207.1 48.62 156 95.42 112.6C142.5 68.84 207.2 32 288 32C368.8 32 433.5 68.84 480.6 112.6V112.6zM288 112C208.5 112 144 176.5 144 256C144 335.5 208.5 400 288 400C367.5 400 432 335.5 432 256C432 176.5 367.5 112 288 112z"/></svg>
+                        Opacity
+                        <div class="slide-container">
+                            <input type="range" min="0" max="100" value="100" class="slider" oninput="DisplayChanges()" id="opacity">
+                        </div>
+                    </div>
+                    <div class="filter">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M14.06 463.3C-4.686 444.6-4.686 414.2 14.06 395.4L395.4 14.06C414.2-4.686 444.6-4.686 463.3 14.06L497.9 48.64C516.6 67.38 516.6 97.78 497.9 116.5L116.5 497.9C97.78 516.6 67.38 516.6 48.64 497.9L14.06 463.3zM347.6 187.6L452.6 82.58L429.4 59.31L324.3 164.3L347.6 187.6z"/></svg>
+                        Saturate
+                        <div class="slide-container">
+                            <input type="range" min="0" max="200" value="100" class="slider" oninput="DisplayChanges()" id="sat">
+                        </div>
+                    </div>
+                    <div class="filter">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M224 0H336C362.5 0 384 21.49 384 48V256H0V48C0 21.49 21.49 0 48 0H64L96 64L128 0H160L192 64L224 0zM384 288V320C384 355.3 355.3 384 320 384H256V448C256 483.3 227.3 512 192 512C156.7 512 128 483.3 128 448V384H64C28.65 384 0 355.3 0 320V288H384zM192 464C200.8 464 208 456.8 208 448C208 439.2 200.8 432 192 432C183.2 432 176 439.2 176 448C176 456.8 183.2 464 192 464z"/></svg>
+                        Sepia
+                        <div class="slide-container">
+                            <input type="range" min="0" max="100" value="0" class="slider" oninput="DisplayChanges()" id="sepia">
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button type="button" class="btn">Download</button>
+                    <button class="btn">Reset</button>
+                    <button type="button" class="btn" <?php echo 'onclick="submitEdit(';
+                                                            echo "'".$_SESSION['filename']."'";
+                                                            echo ')"'; ?>>Upload</button>
+                </div>
+            </div>
+        </div>
+        <script src="edit.js"></script>
+    </body>
+</html>

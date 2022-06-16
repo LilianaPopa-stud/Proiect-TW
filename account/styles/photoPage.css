@@ -14,3 +14,32 @@
 .photo-info{
     padding: 20px;
 }
+
+.unacceptedComm{
+    color:grey;
+}
+
+.unacceptedComm:hover{
+    color: black;
+}
+
+.uncomment{
+    display: flex;
+    justify-content: space-between;
+}
+
+.uncommBtn{
+    color: gray;
+    transition: 0.5;
+    border-radius: 0px;
+}
+
+.commAcc:hover{
+    background-color: #c8faa9;
+    color: #3e8d76;
+}
+
+.commRej:hover{
+    background-color: #ffcbd1;
+    color: #de0a26;
+}
