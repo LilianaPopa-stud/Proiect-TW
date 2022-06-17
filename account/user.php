@@ -1,14 +1,28 @@
 <?php 
 include_once('actions/ImageInfo.php');
+include_once('actions/UserInfo.php');
 include_once('actions/fetch.php');
     $url = $_SERVER['REQUEST_URI'];         
     $url_components = parse_url($url);
 
     if(array_key_exists('query', $url_components)){
         parse_str($url_components['query'], $params);
-        $_SESSION['status'] = $params['visibility'];
+        if(array_key_exists('visibility', $params))
+            $_SESSION['status'] = $params['visibility'];
+        if(array_key_exists('guest', $params)){
+            $_SESSION['view'] = "guest";
+            $_SESSION['page_user'] = $params['guest'];
+            $user = new UserInfo( $params['guest']);
+            $_SESSION['status'] = "public";
+        }
+        else  $user = new UserInfo($_SESSION['username']);
+
     }
-    else $_SESSION['status'] = "seeAll";
+    else {
+        $_SESSION['status'] = "seeAll";
+        $user = new UserInfo($_SESSION['username']);
+    }
+
  ?>
 
 <!DOCTYPE html>
@@ -67,7 +81,9 @@ include_once('actions/fetch.php');
                
           </div>
           
-            <div class="butoane-top">
+            <?php if($user->get_username() == $_SESSION['username']){
+            echo
+            '<div class="butoane-top">
                 <ul class="dropdown">
                     <li>
                         <button type="button" class="buttons">
@@ -80,29 +96,37 @@ include_once('actions/fetch.php');
                             <li><a href="user.php?visibility=public">Public</a></li>
                          </ul>
                     </li>
-                </ul>    
-                   
-              </div>
-
-        <div class="btn3">
-            <a href="uploadPage.php"><label for="file"> <i class="fa fa-plus"></i> Upload </label></a>     
-        </div>
-        </div>
-
-
-
-    
-
+                </ul>           
+            </div>
+            <div class="btn3">
+                <a href="uploadPage.php"><label for="file"> <i class="fa fa-plus"></i> Upload </label></a>     
+            </div>';
+       
+            }
+            ?>
+            </div>
     </section>
    
     <section class="content">
         <div>
             <img src="./pics/avatar3.png" alt="profile-pic" class="profile-pic">
         </div>
-        <div>
-            <?php
-                echo $_SESSION["username"];
-            ?>
+        <div class="user_info">
+            <div class="username_display">
+                <h1>
+                <?php
+                    echo $user->get_username();
+                ?>
+                </h1>
+            </div>
+            <div class="description_display">
+                <p><?php if($user->get_description() != "none")
+                            echo $user->get_description();
+                         else echo "No description";?></p>
+                <?php if($user->get_username() == $_SESSION['username']){
+                echo '<button class="edit_description">Edit description</button>';
+                }?>
+            </div>
         </div>
     </section>
 
@@ -112,8 +136,9 @@ include_once('actions/fetch.php');
 
             
             <?php
-                if(isset($_SESSION['photos'])){
-                    foreach($_SESSION['photos'] as $photo){
+                //if(isset($_SESSION['photos'])){
+                    $photos = $user->get_photos();
+                    foreach($photos as $photo){
                         $tags = $photo->get_splitTags();
                         $edits = $photo->get_edits();
                         if($edits == "unedited")
@@ -179,7 +204,7 @@ include_once('actions/fetch.php');
                         }
 
                     }
-                }
+                //}
                 ?>
     </main>
 </section>
