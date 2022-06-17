@@ -1,5 +1,5 @@
 <?php
-include_once('../account/ImageInfo.php');
+include_once('../account/actions/ImageInfo.php');
 session_start();
 function get_albumPhotos(){
 $username = "";

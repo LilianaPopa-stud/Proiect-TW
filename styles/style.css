@@ -171,5 +171,19 @@ a {
 
 }
 
+.user_info{
+  display: flex;
+  flex-direction: column;
+}
+
+.edit_description{
+  color: #939393;
+  background: transparent;
+  border-color: transparent;
+}
+
+.edit_description:hover{
+  color: #5b5f62;
+}
 
 

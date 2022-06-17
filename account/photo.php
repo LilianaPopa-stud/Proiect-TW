@@ -120,7 +120,7 @@
                                             else if($comment->get_status()=="accepted")
                                             {
                                                 echo '<div class="comment">';
-                                                echo '<p><b>'.$comment->get_from().':</b> '.$comment->get_text().'</p>';
+                                                echo '<p><a href="user.php?guest='.$comment->get_from().'"><b>'.$comment->get_from().':</b></a> '.$comment->get_text().'</p>';
                                             }
                                     echo '</div>
                                     </div>
