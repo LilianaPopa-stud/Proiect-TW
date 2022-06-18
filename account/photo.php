@@ -52,22 +52,18 @@
         <nav class="navbar">
             <div class="logo">BPIC</div>
             <div class="menu">
-                <a href="../registration/index.php"><i class="fa fa-home"> Home </i></a>
+                <a href="../index.php"><i class="fa fa-home"> Home </i></a>
                 <a href="../user-albums/albums.php"><i class="fa fa-folder"> Albums </i> </a>
                 <a href="user.php" class="active"><i class="fa fa-user"> User </i></a>
             </div>
         </nav>
 
         <div class="photoPageWrapper">
-            <?php 
-                $photo = initPhoto($_SESSION['filename']);
-                $_SESSION['photo'] = $photo; 
-                if($photo->get_username() == $_SESSION['username'])
-                    echo "You own this photo";
-                else echo $photo->get_username()." owns this photo";?>
 
             <div class="imageSide">
                 <?php
+                    $photo = initPhoto($_SESSION['filename']);
+                    $_SESSION['photo'] = $photo; 
                     $edits = $photo->get_edits(); 
                     if($edits == "unedited")
                         $edits = "";
@@ -98,6 +94,12 @@
                  </div>'; 
                 }?>
                  <div class="photo-info">
+                    <h1>
+                    <?php 
+                    if($photo->get_username() == $_SESSION['username'])
+                        echo "You own this photo";
+                    else echo '<a href="user.php?guest='.$photo->get_username().'">'.$photo->get_username().'</a> owns this photo';?>
+                    </h1>
                     <ul>
                         <li><h3>Date added: </h3><p><?php echo $photo->get_created();?></p></li>
                         <li><h3>Visibility: </h3><p><?php echo $photo->get_visibility();?></p></li>

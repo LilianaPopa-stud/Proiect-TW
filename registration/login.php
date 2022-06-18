@@ -39,6 +39,7 @@
   					<div class="input-group">
   						<button type="submit" class="btn" name="login_user">Login</button>
   					</div>
+					<button onclick="window.location = '<?php echo $login_url;?>'" type="button" class="btn btn-danger">Login with Google</button>
   					<p>
   						Not yet a member? <a href="signup.php">Sign up</a>
   					</p>

@@ -24,7 +24,7 @@
         <nav class="navbar">
             <div class="logo">BPIC</div>
             <div class="menu">
-                    <a href="../../registration/index.php"><i class="fa fa-home" > Home </i></a>
+                    <a href="../../index.php"><i class="fa fa-home" > Home </i></a>
                     <a href="../../user-albums/albums.php"><i class="fa fa-folder"> Albums </i> </a>
                     <a href="../user.php"><i class="fa fa-user"> User </i></a>
             </div>
@@ -105,8 +105,10 @@
                     </div>
                 </div>
                 <div class="buttons">
-                    <button type="button" class="btn">Download</button>
-                    <button class="btn">Reset</button>
+                    <!--<button type="button" class="btn">Download</button>-->
+                    <button type="button" class="btn"<?php echo 'onclick="deleteEdit(';
+                                                            echo "'".$_SESSION['filename']."'";
+                                                            echo ')"'; ?>>Reset</button>
                     <button type="button" class="btn" <?php echo 'onclick="submitEdit(';
                                                             echo "'".$_SESSION['filename']."'";
                                                             echo ')"'; ?>>Upload</button>

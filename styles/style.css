@@ -186,4 +186,31 @@ a {
   color: #5b5f62;
 }
 
+.form-popup{
+  display: none;
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  top: 25%;
+  left: 25%;
+  text-align: center;
+  padding: 20px;
+  background-color: white;
+  border: 2px solid black;
+  
+}
+
+.form-container input[type=text]{
+  width: 50%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+.form-container input[type=text]:focus{
+  background-color: #ddd;
+  outline: none;
+}
+
 
