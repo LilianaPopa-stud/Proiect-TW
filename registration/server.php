@@ -1,4 +1,5 @@
 <?php
+require_once('../config.php');
 session_start();
 
 // initializing variables
@@ -51,7 +52,7 @@ if (isset($_POST['reg_user'])) {
   	mysqli_query($db, $query);
   	$_SESSION['username'] = $username;
   	$_SESSION['success'] = "You are now logged in";
-  	header('location: index.php');
+  	header('location: ../index.php');
   }
 }
 
@@ -73,11 +74,61 @@ if (isset($_POST['login_user'])) {
         if (mysqli_num_rows($results) == 1) {
           $_SESSION['username'] = $username;
           $_SESSION['success'] = "You are now logged in";
-          header('location: index.php');
+          header('location: ../index.php');
         }else {
             array_push($errors, "Wrong username/password combination");
         }
     }
+  }
+
+  if(isset($_GET['code'])){
+    $toke = $gClient->fetchAccessTokenWithAuthCode($_GET['code']);
+    if(!isset($token['error'])){
+        $oAuth = new Google_Service_Oauth2($gClient);
+        $userData = $oAuth->userinfo_v2_me->get();
+
+        $email = $userData['email'];
+        $familyName = $userData['familyName'];
+        $givenName = $userData['givenName'];
+        $username = $givenName;
+        $password = generateCode(5);
+
+        $user_check_query = "SELECT * FROM users WHERE email='$email' LIMIT 1";
+        $result = mysqli_query($db, $user_check_query);
+        $user = mysqli_fetch_assoc($result);
+  
+        if ($user) { // if user exists
+          $_SESSION['username'] = $username;
+          $_SESSION['success'] = "You are now logged in";
+          header('location: ../index.php');
+        }
+
+        else{
+          $cpassword = md5($password);//encrypt the password before saving in the database
+
+  	      $query = "INSERT INTO users (username, email, password) 
+  			  VALUES('$username', '$email', '$cpassword')";
+  	      mysqli_query($db, $query);
+  	      $_SESSION['username'] = $username;
+  	      $_SESSION['success'] = "You are now logged in";
+  	      header('location: ../index.php');
+        }
+    }
+    else{
+        header('Location: ../index.php');
+        exit();
+    }
+
+}
+
+function generateCode($length){
+  $chars = "vwxyzABCD02789";
+  $code = ""; 
+  $clen = strlen($chars) - 1;
+  while (strlen($code) < $length){ 
+    $code .= $chars[mt_rand(0,$clen)];
+  }
+  return $code;
   }
   
   ?>

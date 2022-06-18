@@ -48,3 +48,15 @@ function submitEdit(filename)
       .then((res) => (document.getElementById("response").innerHTML = res));
 }
 
+function deleteEdit(filename){
+    var edit = "unedited";
+    fetch("uploadEdit.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        },
+        body: `filename=${filename}&edit=${edit}`,
+      })
+      .then(document.getElementById("response").innerHTML = "Edit deleted");
+
+}

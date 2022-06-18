@@ -1,5 +1,6 @@
 <?php 
 include_once('actions/ImageInfo.php');
+include_once('actions/editDescription.php');
 include_once('actions/UserInfo.php');
 include_once('actions/fetch.php');
     $url = $_SERVER['REQUEST_URI'];         
@@ -46,7 +47,7 @@ include_once('actions/fetch.php');
     <nav class="navbar">
         <div class="logo">BPIC</div>
         <div class="menu">
-            <a href="../registration/index.php"><i class="fa fa-home"> Home </i></a>
+            <a href="../index.php"><i class="fa fa-home"> Home </i></a>
             <a href="../user-albums/albums.php"><i class="fa fa-folder"> Albums </i> </a>
             <a href="user.php" class="active"><i class="fa fa-user"> User </i></a>
         </div>
@@ -124,7 +125,7 @@ include_once('actions/fetch.php');
                             echo $user->get_description();
                          else echo "No description";?></p>
                 <?php if($user->get_username() == $_SESSION['username']){
-                echo '<button class="edit_description">Edit description</button>';
+                echo '<button onclick="openEdit()" class="edit_description">Edit description</button>';
                 }?>
             </div>
         </div>
@@ -172,7 +173,7 @@ include_once('actions/fetch.php');
                             if($tags !== ""){
                                 foreach($tags as $tag)
                                 {
-                                    echo '<b> #'.$tag.'</b>';
+                                    echo '<a href="../social/tags/filterPage.php?name='.$tag.'"><b> #'.$tag.'</b></a>';
                                 }
                             }
                             echo '</div>';
@@ -208,7 +209,17 @@ include_once('actions/fetch.php');
                 ?>
     </main>
 </section>
+        <div class="form-popup" id="changeDescription">
+            <form method="post" <?php echo 'action="user.php"';?> class="form-container">
+                <h1>Edit description</h1>
+                <?php include('../registration/errors.php'); ?>
+                <input type="text" placeholder="Enter description" name="description" required>
+                <button type="submit" class="btn" name="edit_bio">Save</button>
+                <button type="button" class="btn" onclick="closeEdit()">Close</button>
+            </form>
+        </div>
         <!--librarie icons-->
+        <script src="scripts/user.js"></script>
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>

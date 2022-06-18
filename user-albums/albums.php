@@ -17,7 +17,7 @@
         <nav class="navbar">
             <div class="logo">BPIC</div>
             <div class="menu">
-                    <a href="../registration/index.php"><i class="fa fa-home" > Home </i></a>
+                    <a href="../index.php"><i class="fa fa-home" > Home </i></a>
                     <a href="albums.php" class="active"><i class="fa fa-folder"> Albums </i> </a>
                     <a href="../account/user.php"><i class="fa fa-user"> User </i></a>
             </div>
