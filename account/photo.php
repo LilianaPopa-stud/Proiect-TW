@@ -134,7 +134,6 @@
                                     <form method="post" action="actions/addComment.php">
                                         <input type="text" class="input" placeholder="Write a comment..." name="comm" require></input>
                                         <button class="primaryContained float-right" type="submit" name="add_comm">Add comment</button>
-                                
                                     </form>
                                 </div>
                             </div>

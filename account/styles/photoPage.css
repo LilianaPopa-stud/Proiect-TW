@@ -11,6 +11,16 @@
 
 }
 
+img{
+    width: 100%;
+    height: auto;
+}
+
+.photoActions{
+    display: flex;
+    flex-direction: row;
+}
+
 .photo-info{
     padding: 20px;
 }
@@ -42,4 +52,15 @@
 .commRej:hover{
     background-color: #ffcbd1;
     color: #de0a26;
+}
+
+@media screen and (max-width: 600px) {
+    .photoPageWrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .photoActions button{
+        font-size: 20px;
+    }
 }
