@@ -1,39 +1,44 @@
-body
-{   padding: 0;
+body{   
+    padding: 0;
     margin: 0;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
 
 }
-h1
-{   font-size: 2.25rem;
+
+h1{    
+    font-size: 2.25rem;
     font-weight: 700;
     
 }
-h2
-{
+
+h2{
     font-size: 1.5rem;
     font-weight: 700;
 }
-a
-{
+
+a{
     text-decoration: none;
     color: rgb(81, 80, 80);
 }
+
 a:hover
 {
     text-decoration: underline;
 }
+
 .small
 {
     font-size: 80%;
     text-align: center;
 }
+
 .split-screen
 {
     display: flex;
     flex-direction: column;
 }
+
 .left
 {
     height: 200px;
@@ -47,15 +52,6 @@ a:hover
     align-items: center;
 }
 
-/*.left
-{
-    
-    background: url(/signup/login/flame-photographing.png);
-    background-size:contain;
-    background-repeat: no-repeat;
-    background-position: center left;
-
-}*/
 .ilustration
 {
     display: inline-block;
@@ -64,6 +60,7 @@ a:hover
     margin-top: 30px;
    
 }
+
 .left .copy
 {   font-family: Cooper Black;
     color:#10294c;
@@ -73,14 +70,9 @@ a:hover
     
 }
 
-
-
-
 .left p
 {
-    font-weight: 400;
-    
-
+    font-weight: 400;  
 }
 
 .right .copy
@@ -102,6 +94,7 @@ a:hover
 {
     width: 328px;
 }
+
 form input[type="text"],form input[type="email"],form input[type="password"]
 {
     display: block;
@@ -122,13 +115,14 @@ label
 }
 
 .input-container.password
-{position: relative;
+{
+    position: relative;
 }
 .input-container.password i
 {
-position: absolute;
-top: 42px;
-right:16px;
+    position: absolute;
+    top: 42px;
+    right:16px;
 }
 
 .signup-button
@@ -179,6 +173,59 @@ right:16px;
     color:#10294c;
 }
 
+.btn{
+    color: white;
+    border-radius: 4px;
+    border: none;
+    text-align: center;
+    font-size: 15px;
+    padding: 20px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.btn span{
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.btn span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.btn:hover span {
+    padding-right: 25px;
+}
+  
+.btn:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.regBtn{
+    background-color: #003060;
+  }
+  
+.googleBtn{
+    background-color: #de0a26;
+}
+
+.header{
+  transition: 0.5s;
+  background: linear-gradient(90deg, var(--c1, #000009), var(--c2, #63acb0) 51%, var(--c1, #1d3679)) var(--x, 0)/ 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header:hover { --x: 100%; }
 
 @media screen and (min-width: 900px)
 {
