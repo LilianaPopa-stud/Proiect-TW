@@ -1,0 +1,85 @@
+html{
+    font-family:sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%
+}
+
+body{
+    margin: 0;
+}
+
+h1{
+    font-size: 2em;
+    margin:.67em 0
+}
+
+body{
+    max-width:30cm;
+    margin:auto;
+    line-height:1.6;
+    font-weight:300;
+    font-family:Roboto,sans-serif
+}
+
+header>h1{
+    margin:0;
+    font-size:3em;
+    padding-top:4em
+}
+
+h1,h2,h3,h4,h5,h6{
+    letter-spacing:.0375em;
+}
+
+h1,h2{
+    color:#4b0061
+}
+
+h2{
+    margin-top:3em;
+}
+
+h3{
+    margin-top:2.5em
+}
+
+h4{
+    font-weight:300;
+    font-size:1.2em;
+    -webkit-font-feature-settings:"c2sc";
+    font-feature-settings:"c2sc";
+    font-variant:small-caps;
+    margin:2em 0 .5em
+
+}
+
+[role=contentinfo] a{
+    text-decoration:none;
+}
+
+[role=directory] ol,ol[role=directory]{
+    list-style-type:none
+}
+
+[role=contentinfo] dt{
+    font-weight:700
+}
+
+[role=contentinfo] dd{
+    margin-bottom:1em
+}
+
+a.onto{
+    text-decoration:none;
+    background:linear-gradient(0deg,rgba(255,0,0,.4),rgba(255,0,0,.4) 15%,#fff 16%);
+    color:#434343
+}
+
+a.onto,code,pre{
+    font-family:Roboto Mono,monospace
+}
+
+p.issue{
+    border-left:3px solid red;
+    padding:.5em 1em
+}

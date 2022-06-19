@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+        <title>Scholarly BPIC</title>
+        <link rel="stylesheet" href="styles/scholarly.css">
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    </head>
+    <body>
+        <div role="contentinfo">
+            <ol role="directory">
+                <li>
+                    <a href="#authors">
+                        <span>1. </span>
+                        Authors
+                    </a>
+                </li>
+                <li>
+                    <a href="#affiliations">
+                        <span>2. </span>
+                        Affiliations
+                    </a>
+                </li>
+                <li>
+                    <a href="#enunt">
+                        <span>3. </span>
+                        Enunt
+                    </a>
+                </li>
+                <li>
+                    <a href="#introduction">
+                        <span>4. </span>
+                        Introduction
+                    </a>
+                </li>
+                <li>
+                    <a href="#project">
+                        <span>5. </span>
+                        Project Description
+                        <ol role="directory">
+                            <li>
+                                <a href="">
+                                    <span>5.1. </span>
+                                    General Description
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span>5.2. </span>
+                                    General Strucure
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span>5.3. </span>
+                                    Components
+                                    <ol role="directory">
+                                        <li>
+                                            <a href="#registration">
+                                                <span>5.3.1. </span>
+                                                Signup/Login Process
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#main">
+                                                <span>5.3.2. </span>
+                                                Main Page
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#search">
+                                                <span>5.3.3. </span>
+                                                Search Tags
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#user">
+                                                <span>5.3.4. </span>
+                                                User
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#photos">
+                                                <span>5.3.5. </span>
+                                                Photos
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#albums">
+                                                <span>5.3.6. </span>
+                                                Albums
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#inspect">
+                                                <span>5.3.7. </span>
+                                                Inspect Photo
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#edit">
+                                                <span>5.3.8. </span>
+                                                Edit Photo
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#comments">
+                                                <span>5.3.9. </span>
+                                                Comments
+                                            </a>
+                                        </li>
+
+                                    </ol>
+                                </a>
+                            </li>
+
+                        </ol>
+                    </a>
+                </li>
+            </ol>
+        </div>
+        <article resource="#" typrof="schema:ScholarlyArticle">
+            <header>
+                <h1 property="schema:name">BPIC</h1>
+                <p role="doc-subtitle" property="schema:alternateName">Proiect TW</p>
+            </header>
+            <section typeof="sa:AuthorsList" id="authors">
+                <h2>1. Authors</h2>
+                <ul>
+                    <li typeof="sa:ContributorRole" property="schema:author">
+                        <span typeof="schema:Person" resource="https://github.com/partaclaura">
+                            <meta property="schema:givenName" content="Laura">
+                            <meta property="schema:familyName" content="Partac">
+                            <span property="schema:name">Laura Partac</span>
+                        </span>
+                        <ul>
+                            <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
+                                <a href="laurapartac02@gmail.com" property="schema:email">
+                                    laurapartac02@gamil.com
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <section typeof="sa:Affiliations" id="affiliations">
+                <h2>2. Affiliations</h2>
+                <ul>
+                    <li id="sa">
+                        <span typeof="schema:Organization" resource="https://www.info.uaic.ro/">
+                            <span property="schema:name">Faculty of Computer Science</span>,
+                            <span property="schema:parentOrganization">
+                                <span typeof="schema:Organization">
+                                    <span property="schema:name">Alexandru Ioan Cuza University of Iasi</span>
+                                    -
+                                    <span property="schema:location" typeof="schema:Place">
+                                        <span property="schema:address" typeof="schema:PostalAddress">
+                                            <span property="schema:addressLocality">Iasi</span>,
+                                            <span property="schema:addressRegion">Iasi</span>,
+                                            <span property="schema:addressCountry">Romania</span>
+                                        </span>
+                                    </span>
+                                </span>
+                            </span>
+                        </span>
+                    </li>
+                </ul>
+            </section>
+            <section id="enunt">
+                <h2>3. Enunt</h2>
+                <p>
+                    Se dorește realizarea unei aplicații web prin intermediul căreia să se realizeze managementul 
+                    fotografiilor personale. Aplicația va permite preluarea (upload-ul) de fotografii, ștergerea, 
+                    organizarea în albume și partajarea acestora în mod public. In funcție de diversele tag-uri 
+                    asociate unei fotografii, se va putea permite filtrarea acestora după diverse criterii (e.g. 
+                    fotografiile din ultima luna, toate fotografiile în care apare o mașină roșie lângă un copac etc.). 
+                    De asemenea, vor putea fi identificate/adnotate diverse obiecte sau persoane prezente intr-o fotografie 
+                    – actiune ce va putea fi realizata de către orice utilizator, dar aprobata doar de posesorul fotografiei. 
+                    Pentru orice fotografie, utilizatorii vor putea adăuga comentarii, acestea putand fi redate automat sau 
+                    daca au fost aprobate de posesorului fotografiei. Din aplicație se vor putea exporta în format CSV diverse 
+                    statistici (precum numărul de fotografii pe care un utilizator le are, câte dintre acestea au un anumit tag 
+                    si altele). In plus, se va oferi posibilitatea de editare a fotografiilor la nivel minimal prin aplicarea de 
+                    diverse filtre și efecte disponibile în CSS (efecte ce vor fi stocate în baza de date și aplicate fotografiei 
+                    ori de câte ori va fi afișată).
+                </p>
+            </section>
+            <div role="doc-introduction">
+                <section id="introduction">
+                    <h2>4. Introduction</h2>
+                    <p>
+
+                    </p>
+                </section>
+            </div>
+
+            <section id="project">
+                <h2>5. Project Description</h2>
+                <section id="description">
+                    <h3>5.1. General Description</h3>
+                    <p>The project is designed in a minimalist manner in order to make it easly accessible for the user.</p>
+                </section>
+                <section id="structure">
+                    <h3>5.2. General Structure</h3>
+                </section>
+                <section id="components">
+                    <h3>5.3. Components</h3>
+                    <section id="registartion">
+                        <h4>5.3.1. Signup/Login Process</h4>
+                        <div>
+                            <h4>Signup</h4>
+                            <div>
+                                <h5>Client Side</h5>
+                                <p>
+                                    On the <b>signup.php</b> page:
+                                </p>
+                                <ul>
+                                    <li>
+                                        The user is able to easly signup with an username, email and password. 
+                                        Said user will be asked to confirm the password by writing it again
+                                        such that the server will check that the passwords are the same.
+                                    </li>
+                                    <li>
+                                        There's also the option to sigup using a Google account.
+                                    </li>
+                                </ul>                   
+                                <h5>Server Side</h5>
+                                <p>
+                                    After fetching the data from the client, the server will connect to a 
+                                    MySQL database in order to add the data to the 'users' table in <b>server.php</b>.<br>
+                                    If there is an existing user with the same username or email, then the client will
+                                    be informed that the account cannot be created with the data provided. Otherwise,
+                                    the account will be added to the database (with an auto incremented id and no description),
+                                    and the user will be redirected to the <a href="#main"> Main page</a>, <b>index.php</b>.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="main">
+                        <h4>5.3.2. Main Page</h4>
+                        <div>
+                            <p>In <b>index.php</b>, which can be accessed only with an account: </p>
+                            <ul>
+                                <li>
+                                    This is the page where the user is redirected after creating/accessing the account.
+                                </li>
+                                <li>
+                                    Provides a search bar which is meant to redirect the user to the <b>filterPage.php</b> 
+                                    with the tags entered in the text field.
+                                </li>
+                                <li>
+                                    Displays a <b>logout</b> button, meant to be used when the user wants to exit their account.
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section id="search">
+                        <h4>5.3.3. Search Tags</h4>
+                        <div>
+                            <p>When entering words in the search bar on the <b>index.php</b> and clicking on the search
+                            icon the user is redirected to the <b>filterPage.php</b>. <br>
+                            The link will also contain the words provided by the user. The server 
+                            extracts the words and invokes the <b>get_tagPhotos()</b> function from the 
+                            <b>fetchFilters.php</b> file. <br>
+                            In <b>fetchFilters.php</b>: </p>
+                            <ul>
+                                <li>
+                                    The server will get all the <b>public</b> <a href="#photos">photos</a> from the database in order to access 
+                                    the tags list and edits list (for displaying with the css filters).
+                                </li>
+                                <li>
+                                    When a public photo contains all the tags requested by the client, the server will add it to a list 
+                                    which will be sent to the <b>filterPage.php</b> to be displayed. The list contains <b>ImageInfo</b>
+                                    objects (the class which stores the info about a photo extracted from the db). 
+                                </li>
+                                <li>
+                                    The photo must contain all the tags requested, but can have additional tags.
+                                </li>
+                                <li>
+                                    If no photos are found, a message will be displayed to inform the user.
+                                </li>
+                                <li>
+                                    The user can access the <b>photo.php</b>(see <a href="#photos">Photos</a>) file for each image that will be displayed.
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section id="user">
+                        <h4>5.3.4. User</h4>
+                        <p>The <b>user.php</b> page can be accessed: </p>
+                        <ul>
+                            <li>
+                                From the navigation bar, visible to any registered user from almost all pages.
+                            </li>
+                            <li>
+                                From any public photo the user owns. In this case, the user will access another user's page
+                                which means that the information displayed will consist only of the username, user description
+                                and the user's public photos. The link to the <b>user.php</b> page will contain <b>guest</b> 
+                                parameter to inform the server that the page will be viewed in guest mode.
+                            </li>
+                        </ul>
+                        <p>The <b>user.php</b> page for the session user (if the user views its own page): </p>
+                        <ul>
+                            <li>
+                                All the photos owned by the user will be displayed, but the user can choose to
+                                see only the private/public photos by hovering over the <b>Visibility</b> button and
+                                picking an option.
+                            </li>
+                            <li>
+                                The user can edit the description by clicking the <b>Edit description</b> button located under
+                                the description.
+                                <ul>
+                                    <li>Also, if the user didn't set a description yet, <b>No description</b> will be displayed instead.</li>
+                                    <li>After clicking the button, a pop up form will apear in which the user can set the description.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                A <b>Upload</b> button is provided through which the user will be redirected to the <b>uploadPage.php</b> in 
+                                order to upload a new photo.
+                            </li>
+                        </ul>
+                        <p><b>UserInfo.php</b> class: </p>
+                        <ul>
+                            <li>
+                                Contains:
+                                <ul>
+                                    <li>
+                                        the user id;
+                                    </li>
+                                    <li>
+                                        username;
+                                    </li>
+                                    <li>
+                                        email;
+                                    </li>
+                                    <li>
+                                        description;
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                Purpose:
+                                <ul>
+                                    <li>
+                                        To easly store the information about a user extracted from the database;
+                                    </li>
+                                    <li>
+                                        Used when constructing the <b>user.php</b> page.
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    <section id="photos">
+                        <h4>5.3.5. Photos</h4>
+                        <p><b>ImageInfo.php</b> class: </p>
+                        <ul>
+                            <li>
+                                Contains:
+                                <ul>
+                                    <li>
+                                        the photo id;
+                                    </li>
+                                    <li>
+                                        owner;
+                                    </li>
+                                    <li>
+                                        filename;
+                                    </li>
+                                    <li>
+                                        created (the date at which the photo was uploaded);
+                                    </li>
+                                    <li>
+                                        visibility (public or private(default));
+                                    </li>
+                                    <li>
+                                        albums (the albums the photo was added to);
+                                    </li>
+                                    <li>
+                                        tags (the list of tags added to the photo);
+                                    </li>
+                                    <li>
+                                        edits (the list of css filters added to the photo).
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                Purpose:
+                                <ul>
+                                    <li>
+                                        To easly store the information about a photo extracted from the database;
+                                    </li>
+                                    <li>
+                                        Used almost everytime a photo is displayed.
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p>The <b>photo.php</b> page: </p>
+                        <ul>
+                            <li>
+                                When displayed for <b>guest</b>:
+                                <ul>
+                                    <li>
+                                        Information about the photo is displayed: the owner, the date when it was added, the visibility (public) and the tags.
+
+                                    </li>
+                                    <li>
+                                        The comments approved by the owner are displayed.
+                                    </li>
+                                    <li>
+                                        The user can add a comment to the photo, but it won't be displayed until the owner will approve it.
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                When displayed for <b>owner</b>:
+                                <ul>
+                                    <li>
+                                        A list of buttons will be provided:
+                                        <ul>
+                                            <li>
+                                                <b>Edit: </b> redirects the user to the <b>editPage.php</b> to edit the current photo.
+                                            </li>
+                                            <li>
+                                                <b>Add to folder: </b> a popup form will display all the albums the user created such that one can be picked in order to add the current photo to it.
+                                            </li>
+                                            <li>
+                                                <b>Delete: </b> used when the user wants to delete the photo.
+                                            </li>
+                                            <li>
+                                                <b>Add tags: </b> a popup form will appear allowing the user to add a new tag to the photo.
+                                            </li>
+                                            <li>
+                                                <b>Make public/private: </b> Will show the opposite of the visibility status in order to change it to that.
+                                            </li>
+                                            <li>
+                                                <b>Inspect: </b> redirects the user to the <b>inspect.php</b> where the user can tag objects directly on the photo.
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        The owner will be able to see all comments added, and <b>accept</b> or <b>reject</b> other user's comments.
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    <section id="albums">
+                        <h4>5.3.6. Albums</h4>
+                        <ul>
+                            <li>
+                                The user can see its albums and add a new album on the <b>albums.php</b> page.
+                            </li>
+                            <li>
+                                When the user clicks on the <b>Add album</b> button, a form popup will allow the user to add an album 
+                                by providing a name.
+                            </li>
+                            <li>
+                                When clicking on one of the albums, the user will be redirected to the <b>album.php</b> page of the album where 
+                                all of the photos that have that album in the albums list will be displayed.
+                            </li>
+                        </ul>
+                    </section>
+                    <section id="inspect">
+                        <h4>5.3.7. Inspect Photo</h4>
+                        <p>On the <b>inspect.php</b> page the user can: </p>
+                        <ul>
+                            <li>
+                                See the tags added on specific objects/areas on the photo when clicking the <b>Show tags</b> button.
+                            </li>
+                            <li>
+                                Then the user can hide the tags through the <b>Hide tags</b> button.
+                            </li>
+                            <li>
+                                Add a new tag by clicking an area on the photo:
+                                <ul>
+                                    <li>
+                                        if the user confirms (<b>Confirm</b> button) the coordinates of the area clicked, then a text area will appear.
+                                    </li>
+                                    <li>
+                                        the user can write a name for the tag and by clicking the <b>Add tag</b> button the tag will be added on the photo.
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    <section id="edit">
+                        <h4>5.3.8. Edit Photo</h4>
+                        <p>On the <b>editPage.php</b> page the user can edit the current photo by applying CSS filters.</p>
+                        <ul>
+                            <li>
+                                <p> The filters available for the <b>filter</b> property will be provided for the user in the form of range input.</p>
+                            </li>
+                            <li>
+                                When clicking the <b>Upload</b> button, the server will update the edits in the database (default is none);
+                            </li>
+                            <li>
+                                The button <b>Reset</b> is used when the user whats to eliminate the edits and display the photo in its original form.
+                            </li>
+                        </ul>
+
+                    </section>
+                    <section id="comments">
+                        <h4>5.3.9. Comments</h4>
+                        <p><b>CommentsInfo.php</b> class: </p>
+                        <ul>
+                            <li>
+                                Contains:
+                                <ul>
+                                    <li>
+                                        filename (the photo to which the comment was added);
+                                    </li>
+                                    <li>
+                                        from (the poster of the comment);
+                                    </li>
+                                    <li>
+                                        to (the owner of the photo);
+                                    </li>
+                                    <li>
+                                        status (approved/unapproved(default));
+                                    </li>
+                                    <li>
+                                        visibility (public or private(default));
+                                    </li>
+                                    <li>
+                                        text (the content of the comment);
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                Purpose:
+                                <ul>
+                                    <li>
+                                        To easly store the information about a comment extracted from the database;
+                                    </li>
+                                    <li>
+                                        Used for displaying comments.
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+
+                </section>
+            </section>
+        </article>
+    </body>
+</html>
