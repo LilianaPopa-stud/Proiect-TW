@@ -45,7 +45,7 @@ include_once('actions/fetch.php');
 
 <body>
     <nav class="navbar">
-        <div class="logo">BPIC</div>
+        <div class="logo"><a href="../index.php">BPIC</a></div>
         <div class="menu">
             <a href="../index.php"><i class="fa fa-home"> Home </i></a>
             <a href="../user-albums/albums.php"><i class="fa fa-folder"> Albums </i> </a>
@@ -56,27 +56,11 @@ include_once('actions/fetch.php');
     <section class="main">
         <div class="wrapper">
 
-
-            <div class="butoane-top">
-                <ul class="dropdown">
-                    <li><button type="button" class="buttons">
-                    <span class="button_icon"><ion-icon name="funnel-outline"></ion-icon></ion-icon></span>
-                    <span class="button_text">Filter</span>
-                    </button>
-                <ul class="elemente_dropdown">
-                    <li><a href="#">after date</a></li>
-                    <li><a href="#">after tag</a></li>
-                </ul>
-                </li>
-                </ul>
-            </div>
-                 
-
-<div class="butoane-top">
+        <div class="butoane-top">
             <ul class="dropdown">
                 <li><button type="button" class="buttons">
                 <span class="button_icon"><ion-icon name="download-outline"></ion-icon></span>
-                <span class="button_text">Stats</span></button>
+                <span class="button_text"><a href="actions/stats.php">Stats</a></span></button>
                 </li>
             </ul>    
                
@@ -100,7 +84,7 @@ include_once('actions/fetch.php');
                 </ul>           
             </div>
             <div class="btn3">
-                <a href="uploadPage.php"><label for="file"> <i class="fa fa-plus"></i> Upload </label></a>     
+                <a href="uploadPage.php" class="uploadBtn"><label for="file"> <i class="fa fa-plus"></i> Upload </label></a>     
             </div>';
        
             }
@@ -148,27 +132,14 @@ include_once('actions/fetch.php');
                         echo
                         '
                         <section id="app">
-                            <div class="butoane-top">
-                                <ul class="dropdown">
-                                    <li><button type="button" class="buttons">
-                                            <span class="button_icon"><ion-icon name="people-outline"></ion-icon></span>
-                                            <span class="button_text">Tagged</span>
-                                        </button>
-                                        <ul class="elemente_dropdown">
-                                            <li><a href="#">@user1</a></li>
-                                            <li><a href="#">@user2</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div> 
                             <div>
                             <a href = "photo.php?name='.$photo->get_filename().'&action=none&param=none">
                                 <img src="../images/user-photos1/'.$photo->get_filename().'" id="photo" class="photo" alt="post"
                                  style="filter:'.$edits.';">
                             </a>
-                            </div>
-                            <div class="caption-box"> <b>'.$_SESSION['username'] .'</div>';
-
+                            </div>';
+                            echo '<div class="caption-box"> <b>'.$_SESSION['username'] .'</b></div>';
+                            echo '<div class="date"><time>'.$photo->get_created().'</time></div>';
                             echo '<div class="tags-box">';
                             if($tags !== ""){
                                 foreach($tags as $tag)
@@ -177,31 +148,7 @@ include_once('actions/fetch.php');
                                 }
                             }
                             echo '</div>';
-
-                            echo '<div class="date">'.$photo->get_created().'</time></div>
-                            <div class="container-comm">
-                            <div class="row-gallery">
-                                <div class="col-6">
-                                    <div class="comment">
-                          
-                                    </div>
-                                    <!--End comment-->
-                                </div>
-                                 <!--End Col-->
-                            </div>
-                            <!--End row-->
-                            <div class="row-gallery">
-                                <div class="col-6">
-                                    <textarea class="input" placeholder="Write a comment..."></textarea>
-                                    <button class="primaryContained float-right" type="submit">Add comment</button>
-                                </div>
-                                 <!--end col-->
-                            </div>
-                            <!--End row-->
-                        </div>
-                        <!--End Container-->
-                    </section>
-                    <!--end app-->';
+                        echo '</section>';
                         }
 
                     }

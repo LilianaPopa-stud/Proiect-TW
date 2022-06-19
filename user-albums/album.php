@@ -29,7 +29,7 @@ require_once 'actions/fetchAlbumPhotos.php';
     </head>
     <body>
         <nav class="navbar">
-            <div class="logo">BPIC</div>
+            <div class="logo"><a href="../index.php">BPIC</a></div>
             <div class="menu">
                     <a href="../index.php"><i class="fa fa-home" > Home </i></a>
                     <a href="albums.php"><i class="fa fa-folder"> Albums </i> </a>

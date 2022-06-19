@@ -6,7 +6,8 @@ $errors = array();
 
 $db = mysqli_connect('localhost', 'root', '', 'proiect_tw');
 
-$image = init($_SESSION['filename'], $_SESSION['username']);
+if(isset($_SESSION['filename']))
+    $image = init($_SESSION['filename'], $_SESSION['username']);
 
 if(isset($_POST['add_tag'])){
 

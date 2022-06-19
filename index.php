@@ -27,7 +27,7 @@
 </head>
 <body>
     <nav class="navbar">
-        <div class="logo">BPIC</div>
+        <div class="logo"><a href="index.php">BPIC</a></div>
         <div class="menu">
                 <a href="index.php" class="active"><i class="fa fa-home" > Home </i></a>
                 <a href="user-albums/albums.php"><i class="fa fa-folder"> Albums </i> </a>
@@ -52,7 +52,7 @@
   	        <?php endif ?>
             <?php  if (isset($_SESSION['username'])) : ?>
     	        <p>Welcome, <strong><?php echo $_SESSION['username']; ?></strong>!</p>
-    	        <p> <a href="index.php?logout='1'">logout</a> </p>
+    	        <button> <a href="index.php?logout='1'">logout</a> </button>
             <?php endif ?>
         </div>
         <div class="container searchField">

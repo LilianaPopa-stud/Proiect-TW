@@ -82,7 +82,6 @@
                             </a>
                     </button>
                     <button type="button" onclick="openAddTags()">Add tags</button>
-                    <button>Tag someone</button>
                     <button>
                         <a href="photo.php?name='.$_SESSION['filename'].'&action=updateVisibility&param='.$photo->get_visibility().'">
                             Make '; 
@@ -91,6 +90,7 @@
                             else echo "private"; 
                         echo '</a>
                     </button>
+                    <button><a href="inspect.php?name='.$_SESSION['filename'].'">Inspect</a></button>
                  </div>'; 
                 }?>
                  <div class="photo-info">
@@ -134,7 +134,6 @@
                                     <form method="post" action="actions/addComment.php">
                                         <input type="text" class="input" placeholder="Write a comment..." name="comm" require></input>
                                         <button class="primaryContained float-right" type="submit" name="add_comm">Add comment</button>
-                                
                                     </form>
                                 </div>
                             </div>
