@@ -51,6 +51,9 @@ $_SESSION['filename'] = $params['name'];
                 <input id="tagInput" class="tag_input" type="text">
                 <button class="btn" id="addTag">Add tag</button>
             </div>
+            <div id="tag-list">
+
+            </div>
         
         </div>
         <script src="scripts/inspect.js"></script>

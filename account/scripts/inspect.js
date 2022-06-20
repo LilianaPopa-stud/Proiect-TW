@@ -96,6 +96,64 @@ function showTags(canvas, ctx, filename, res){
             ctx.font = "20pt Calibri";
             ctx.fillStyle = "black";
             ctx.fillText(tagName, x, y);
+            displayTags(tagName, filename);
         }
     }
+
+}
+
+function displayTags(tagname, filename)
+{
+    var dd = document.createElement("ul");
+    dd.className = "dropdown";
+    dd.id = "dd";
+
+    var el = document.createElement("li");
+    el.id = "el";
+    dd.appendChild(el);
+
+
+    var btn = document.createElement('button');
+    btn.type = "button";
+    btn.className = "buttons";
+    btn.id = "btn";
+    var sp = document.createElement("span");
+    sp.class = "button_text";
+    sp.id = "tag_name";
+    var a = document.createElement('a');
+    var linkText = document.createTextNode( "#" + tagname + " ");
+    a.appendChild(linkText);
+    a.title = tagname;
+    a.href = "../social/tags/filterPage.php?name=" + tagname;
+    sp.appendChild(a);
+    btn.appendChild(sp);
+    el.appendChild(btn);
+
+    var dd_el = document.createElement("ul");
+    dd_el.className = "elemente_dropdown";
+    dd_el.id="dd_el";
+
+    var del = document.createElement('li');
+    var dt = document.createElement('a');
+    var linkText = document.createTextNode("Delete");
+    dt.appendChild(linkText);
+    dt.title = "del";
+    dt.href = "actions/addTagsInspect.php?delete=true&tag=" + tagname + "&file=" + filename;
+    del.appendChild(dt);
+
+    var add = document.createElement('li');
+    var ad = document.createElement('a');
+    var linkText = document.createTextNode("Add to tags");
+    ad.appendChild(linkText);
+    ad.title = "add";
+    ad.href = "actions/addTagsInspect.php?tag=" + tagname + "&file=" + filename;
+    del.appendChild(ad);
+
+    dd_el.appendChild(del);
+    dd_el.appendChild(add);
+    
+    el.appendChild(dd_el);
+    
+    document.getElementById("tag-list").appendChild(dd);
+
 }
