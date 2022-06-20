@@ -45,3 +45,4 @@ if(isset($_POST['add_tag'])){
         header('location: photo.php?name='.$_SESSION['filename'].'&action=none&param=none');
     }
 }
+

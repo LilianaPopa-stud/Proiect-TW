@@ -30,6 +30,10 @@
             rejectComm($_SESSION['filename']);
         }   
     }
+    if($params['action'] == "deleteTag"){
+        deleteTag($_SESSION['filename'], $params['param']);
+
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -103,7 +107,27 @@
                     <ul>
                         <li><h3>Date added: </h3><p><?php echo $photo->get_created();?></p></li>
                         <li><h3>Visibility: </h3><p><?php echo $photo->get_visibility();?></p></li>
-                        <li><h3>Tags: </h3><p><?php echo $photo->get_tags();?></p></li>
+                        <li><h3>Tags: </h3>
+                            <?php 
+                            $tags = $photo->get_splitTags();
+                            foreach($tags as $tag)
+                            {
+                                echo '
+                                <ul class="dropdown">
+                                    <li>
+                                    <button type="button" class="buttons">
+                                        <span class="button_text"><a href="../social/tags/filterPage.php?name='.$tag.'">'.$tag.'</a></span>
+                                    </button>';
+                                    if($photo->get_username() == $_SESSION['username']){
+                                        echo '<ul class="elemente_dropdown">
+                                                    <li><a href="photo.php?name='.$_SESSION['filename'].'&action=deleteTag&param='.$tag.'">Delete</a></li>
+                                                </ul>
+                                    </li>
+                                </ul>'; 
+                                }      
+                            }
+                            ?>
+                        </li>
                     </ul>
                 </div>
                 <div class="container-comm">

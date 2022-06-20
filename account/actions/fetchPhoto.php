@@ -107,3 +107,33 @@ function rejectComm($filename)
     header('location: photo.php?name='.$_SESSION['filename'].'&action=none&param=none');
 
 }
+
+function deleteTag($filename, $tag)
+{
+    $db = mysqli_connect('localhost', 'root', '', 'proiect_tw');
+    $query = "SELECT tags FROM images where filename='$filename'";
+    $result = mysqli_query($db, $query);
+    if(mysqli_num_rows($result) > 0){
+        while($file = mysqli_fetch_assoc($result)){
+            $tags = explode(",", $file['tags']);
+        }
+    }
+    $update = "";
+    
+    foreach((array)$tags as $t)
+    {
+        if($t !== $tag && $t !== "")
+        {
+            if($update == "")
+                $update = $t;
+            else{
+                $update .= ','.$t;
+            }
+        }
+    }
+
+    $query = "UPDATE images SET tags='$update' where filename='$filename'";
+    mysqli_query($db, $query);
+    header('location: photo.php?name='.$_SESSION['filename'].'&action=none&param=none');
+    
+}

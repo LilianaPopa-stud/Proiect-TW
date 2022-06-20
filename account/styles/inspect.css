@@ -31,3 +31,19 @@
 #hideBtn{
     width: 200px;
 }
+
+#tag-list{
+    display: flex;
+}
+
+.buttons{
+    padding: 5px;
+}
+
+@media screen and (max-width: 600px){
+    .actionSide{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
